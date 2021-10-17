@@ -1,6 +1,6 @@
-nombre|descripcion|informacion
-nombre|descripcion|informacion
-nombre|descripcion|informacion
-nombr23|descripcion|informacion
-nombre|descripcion|informacion
-Rinoceronte|Grande y gris|Es un animal en peligro de extincion
+perro|cuadrupedo el cual es conocido por ser el mejor amigo del hombre |esta especio no esta en peligro de extinción
+mapache|descripcion|informacion
+panda|descripcion|informacion
+pandarojo|descripcion|informacion
+lobo|descripcion|informacion
+rinoceronte|Grande y gris|Es un animal en peligro de extincion
