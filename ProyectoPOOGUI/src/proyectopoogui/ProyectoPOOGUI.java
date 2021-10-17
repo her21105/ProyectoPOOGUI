@@ -19,7 +19,7 @@ public class ProyectoPOOGUI extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("viewMain.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/view/viewStart.fxml"));
         
         Scene scene = new Scene(root);
         
