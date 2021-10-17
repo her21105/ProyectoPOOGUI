@@ -26,6 +26,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -66,6 +68,9 @@ public class ViewInformationController implements Initializable {
     @FXML
     private Label ShowInfo;
     
+    @FXML
+    private ImageView imgAnimals;
+    
     private int select;
     
     @FXML
@@ -99,14 +104,14 @@ public class ViewInformationController implements Initializable {
     @FXML
     private void InfoAnimals(ActionEvent e){
         
-        select = AnimalList.getSelectionModel().getSelectedIndex();
+      /*  select = AnimalList.getSelectionModel().getSelectedIndex();
         
         Animal animal = leerAnimalesDelArchivo().get(select);
         String string = "nombres: "+animal.getNombre()+"\n"
                 + "descripción: "+animal.getDescripcion()+"\n"
                 + "información: "+animal.getInformacion();
         
-        ShowInfo.setText(string);
+        ShowInfo.setText(string); */
         
         
     }
@@ -172,17 +177,7 @@ public class ViewInformationController implements Initializable {
             }
         }); */
         
-        EventHandler<ActionEvent> event =
-                  new EventHandler<ActionEvent>() {
-            public void handle(ActionEvent e)
-            {
-                select = AnimalList.getSelectionModel().getSelectedIndex();
-                System.out.println(select);
-            }
-            
-        };
         
-        AnimalList.setOnAction(event);
         AnimalList.setOnAction((event2)->{
     
         //System.out.println(AnimalList.getSelectionModel().getSelectedIndex());
@@ -194,6 +189,12 @@ public class ViewInformationController implements Initializable {
                 + "información: "+animal.getInformacion();
         
         ShowInfo.setText(string);
+        
+        Image image1 = new Image(getClass().getResourceAsStream("/images/"+animal.getNombre()+".png"));
+        imgAnimals.setImage(image1);
+        
+        
+        
     
     });
         
@@ -223,8 +224,6 @@ private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de An
             
             Animal nuevoAnimal = new Animal(nombre, descripcion, informacion);
             listaAnimales.add(nuevoAnimal);
-            
-            
             
         }
          s.close();
