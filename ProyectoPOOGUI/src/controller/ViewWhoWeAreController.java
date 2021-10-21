@@ -23,7 +23,9 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
-
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.control.Label;
 /**
  * FXML Controller class
  *
@@ -46,6 +48,19 @@ public class ViewWhoWeAreController implements Initializable {
     @FXML
     private Button DonateButton;
     
+    @FXML
+    private ImageView imgSM;
+    
+    @FXML
+    private ImageView imgSM1;
+    
+    @FXML
+    private ImageView imgSM2;
+    
+    @FXML
+    private Label Title;
+    
+    private String text;
     @FXML
     private void goMenu(ActionEvent event){
         
@@ -112,6 +127,18 @@ public class ViewWhoWeAreController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+    
+    Image image2 = new Image(getClass().getResourceAsStream("/images/fb.png"));
+    imgSM.setImage(image2);
+    
+    Image image3 = new Image(getClass().getResourceAsStream("/images/ig.png"));
+    imgSM1.setImage(image3);
+    
+    Image image4 = new Image(getClass().getResourceAsStream("/images/gm.png"));
+    imgSM2.setImage(image4);
+    
+    text = "¡Síguenos en nuestras redes sociales!";
+    Title.setText(text);
     }    
     
 }
