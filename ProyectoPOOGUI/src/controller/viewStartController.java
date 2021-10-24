@@ -46,6 +46,14 @@ public class viewStartController implements Initializable {
     private Button DonateButton;
     
     @FXML
+    private Button InicioAdministradorButton;
+    
+    @FXML
+    private void goInicioAdministradores(ActionEvent event){
+        loadStage("/view/ViewAdministrador.fxml", event);
+    }
+    
+    @FXML
     private void goMenu(ActionEvent event){
         
         loadStage("/view/viewStart.fxml", event);

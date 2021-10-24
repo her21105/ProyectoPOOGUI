@@ -58,6 +58,14 @@ public class ViewWhoWeAreController implements Initializable {
     private ImageView imgSM2;
     
     @FXML
+    private Button InicioAdministradorButton;
+    
+    @FXML
+    private void goInicioAdministradores(ActionEvent event){
+        loadStage("/view/ViewAdministrador.fxml", event);
+    }
+    
+    @FXML
     private Label Title;
     
     private String text;

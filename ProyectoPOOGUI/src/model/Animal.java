@@ -9,6 +9,15 @@ package model;
  *
  * @author Joabh
  */
+/******************************************************************
+Ultima modificacion: 28/09/2021
+
+Clase animal: esta clase se utiliza para el manejo de la información de los animales
+@file Animal.java
+@author Lourdes
+@version 1.0, 28/09/2021
+******************************************************************/
+
 public class Animal {
 
     private String nombre;
@@ -25,10 +34,6 @@ public class Animal {
         this.setNombre(nombre);
         this.setDescripcion(descripcion);
         this.setInformacion(informacion);
-    }
-    
-    public Animal(){
-        
     }
 
     /**
@@ -87,19 +92,6 @@ public class Animal {
     public String animalString(){
         String s = "\n"+this.getNombre()+"|"+this.getDescripcion()+"|"+this.getInformacion();
         return s;
-    }
-    
-    /**
-     *
-     * @return
-     */
-    @Override
-    public String toString() {
-        
-        return "nombre: "+getNombre()+"\n"
-                + "descripción: "+getDescripcion()+"\n"
-                + "información: "+getInformacion();
-        
     }
 
 }

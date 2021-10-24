@@ -69,6 +69,14 @@ public class ViewInformationController implements Initializable {
     private Label ShowInfo;
     
     @FXML
+    private Button InicioAdministradorButton;
+    
+    @FXML
+    private void goInicioAdministradores(ActionEvent event){
+        loadStage("/view/ViewAdministrador.fxml", event);
+    }
+    
+    @FXML
     private ImageView imgAnimals;
     
     private int select;
@@ -209,7 +217,7 @@ private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de An
         
         
         ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-        File file = new File(classLoader.getResource("containers/animalesFile.txt").getFile());
+        File file = new File(classLoader.getResource("/containers/animalesFile.txt").getFile());
         Scanner s = new Scanner(file);
         
         

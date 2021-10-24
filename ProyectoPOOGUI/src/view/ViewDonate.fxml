@@ -3,12 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17" fx:controller="controller.ViewDonateController">
+<AnchorPane id="AnchorPane" prefHeight="415.0" prefWidth="627.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewDonateController">
    <children>
-      <Button fx:id="menuButton" layoutX="52.0" layoutY="53.0" mnemonicParsing="false" onAction="#goMenu" text="Inicio" />
-      <Button fx:id="informButton" layoutX="159.0" layoutY="53.0" mnemonicParsing="false" onAction="#goInfo" text="Información" />
-      <Button fx:id="whoWeAreButton" layoutX="300.0" layoutY="53.0" mnemonicParsing="false" onAction="#goWhoWeAre" text="¿Quienes somos?" />
-      <Button fx:id="DonateButton" layoutX="462.0" layoutY="53.0" mnemonicParsing="false" onAction="#goDonate" text="Donar" />
+      <Button fx:id="menuButton" layoutX="25.0" layoutY="40.0" mnemonicParsing="false" onAction="#goMenu" text="Inicio" />
+      <Button fx:id="informButton" layoutX="82.0" layoutY="40.0" mnemonicParsing="false" onAction="#goInfo" text="Información" />
+      <Button fx:id="whoWeAreButton" layoutX="173.0" layoutY="40.0" mnemonicParsing="false" onAction="#goWhoWeAre" text="¿Quienes somos?" />
+      <Button fx:id="DonateButton" layoutX="296.0" layoutY="40.0" mnemonicParsing="false" onAction="#goDonate" text="Donar" />
+      <Button fx:id="InicioAdministradorButton" layoutX="393.0" layoutY="40.0" mnemonicParsing="false" onAction="#goInicioAdministradores" text="Inicio de sesion administradores" />
    </children>
 </AnchorPane>
