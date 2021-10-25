@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Archivo viewStartController
  */
 package controller;
 
@@ -28,7 +26,8 @@ import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
 
 /**
- *
+ * FXML Controller class:
+ * Controlador del Inicio
  * @author Joabh
  */
 public class viewStartController implements Initializable {
@@ -143,10 +142,6 @@ public class viewStartController implements Initializable {
         
         
     }
-    
-    
-    
-    
     
     /**
      * Método para inizializar
