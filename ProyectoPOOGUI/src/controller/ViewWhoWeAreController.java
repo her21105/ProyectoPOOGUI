@@ -27,8 +27,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.Label;
 /**
- * FXML Controller class
- *
+ * FXML Controller class:
+ * Controlador de ¿Quiénes Somos?
  * @author Joabh
  */
 public class ViewWhoWeAreController implements Initializable {
@@ -60,6 +60,10 @@ public class ViewWhoWeAreController implements Initializable {
     @FXML
     private Button InicioAdministradorButton;
     
+    /**
+     * Método para ir a la seccion de inicio
+     * @param event 
+     */
     @FXML
     private void goInicioAdministradores(ActionEvent event){
         loadStage("/view/ViewAdministrador.fxml", event);
@@ -69,6 +73,11 @@ public class ViewWhoWeAreController implements Initializable {
     private Label Title;
     
     private String text;
+    
+    /**
+     * Método para ir al menú
+     * @param event 
+     */
     @FXML
     private void goMenu(ActionEvent event){
         
@@ -76,6 +85,10 @@ public class ViewWhoWeAreController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a Información
+     * @param event 
+     */
     @FXML
     private void goInfo (ActionEvent event){
         
@@ -83,6 +96,10 @@ public class ViewWhoWeAreController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a ¿Quiénes somos?
+     * @param event 
+     */
     @FXML
     private void goWhoWeAre (ActionEvent event){
         
@@ -90,6 +107,10 @@ public class ViewWhoWeAreController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a Donar
+     * @param event 
+     */
     @FXML
     private void goDonate (ActionEvent event){
         
@@ -97,6 +118,11 @@ public class ViewWhoWeAreController implements Initializable {
         
     }
     
+    /**
+     * Metodo para cargar el escenario
+     * @param url
+     * @param event 
+     */
     private void loadStage(String url, Event event){
         
         try{
@@ -131,7 +157,11 @@ public class ViewWhoWeAreController implements Initializable {
         
     }
     
-    
+    /**
+     * Método para inicializar
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
