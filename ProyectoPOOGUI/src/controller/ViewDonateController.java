@@ -25,8 +25,8 @@ import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
 
 /**
- * FXML Controller class
- *
+ * FXML Controller class:
+ * Controlador de Donar
  * @author Joabh
  */
 public class ViewDonateController implements Initializable {
@@ -49,11 +49,19 @@ public class ViewDonateController implements Initializable {
     @FXML
     private Button InicioAdministradorButton;
     
+    /**
+     * Método para ir al inicio de administradores
+     * @param event 
+     */
     @FXML
     private void goInicioAdministradores(ActionEvent event){
         loadStage("/view/ViewAdministrador.fxml", event);
     }
     
+    /**
+     * Método para ir al menú
+     * @param event 
+     */
     @FXML
     private void goMenu(ActionEvent event){
         
@@ -61,6 +69,10 @@ public class ViewDonateController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a información
+     * @param event 
+     */
     @FXML
     private void goInfo (ActionEvent event){
         
@@ -68,6 +80,10 @@ public class ViewDonateController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a ¿Quiénes somos?
+     * @param event 
+     */
     @FXML
     private void goWhoWeAre (ActionEvent event){
         
@@ -75,6 +91,10 @@ public class ViewDonateController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a Donar
+     * @param event 
+     */
     @FXML
     private void goDonate (ActionEvent event){
         
@@ -82,6 +102,11 @@ public class ViewDonateController implements Initializable {
         
     }
     
+    /**
+     * Método para cambiar de escenario
+     * @param url
+     * @param event 
+     */
     private void loadStage(String url, Event event){
         
         try{
@@ -115,6 +140,12 @@ public class ViewDonateController implements Initializable {
         
         
     }
+    
+    /**
+     * Método para inicializar 
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
