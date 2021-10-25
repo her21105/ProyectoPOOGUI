@@ -1,5 +1,7 @@
 /*
- * Archivo para convertir animales
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
@@ -12,22 +14,12 @@ import model.Animal;
  * @author Joabh
  */
 public class AnimalConverter extends StringConverter<Animal> {
-    
-    /**
-     * Método para obtener el nombre del animal
-     * @param animal
-     * @return animal
-     */
+
     @Override
     public String toString(Animal animal) {
         return animal == null ? null: animal.getNombre();
     }
 
-    /**
-     * Método para devolver null
-     * @param string
-     * @return null
-     */
     @Override
     public Animal fromString(String string) {
         return null;
