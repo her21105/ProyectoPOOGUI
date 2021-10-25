@@ -39,8 +39,8 @@ import javafx.util.StringConverter;
 
 
 /**
- * FXML Controller class
- *
+ * FXML Controller class:
+ * Controlador de Informacion
  * @author Joabh
  */
 public class ViewInformationController implements Initializable {
@@ -72,6 +72,10 @@ public class ViewInformationController implements Initializable {
     @FXML
     private Button InicioAdministradorButton;
     
+    /**
+     * Método para ir a la seccion de inicio de administradores
+     * @param event 
+     */
     @FXML
     private void goInicioAdministradoresgo(ActionEvent event){
         loadStage("/view/ViewAdministrador.fxml", event);
@@ -82,6 +86,10 @@ public class ViewInformationController implements Initializable {
     
     private int select;
     
+    /**
+     * Método para ir al menú
+     * @param event 
+     */
     @FXML
     private void goMenu(ActionEvent event){
         
@@ -89,6 +97,10 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a Inforamción
+     * @param event 
+     */
     @FXML
     private void goInfo (ActionEvent event){
         
@@ -96,6 +108,10 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a ¿Quiénes Somos?
+     * @param event 
+     */
     @FXML
     private void goWhoWeAre (ActionEvent event){
         
@@ -103,6 +119,10 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a Donar
+     * @param event 
+     */
     @FXML
     private void goDonate (ActionEvent event){
         
@@ -110,6 +130,10 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a Animales
+     * @param e 
+     */
     @FXML
     private void InfoAnimals(ActionEvent e){
         
@@ -125,7 +149,11 @@ public class ViewInformationController implements Initializable {
         
     }
     
-    
+    /**
+     * Método para cargar el escenario
+     * @param url
+     * @param event 
+     */
     private void loadStage(String url, Event event){//abre otras pestañas y cierra la actual
         
         try{
@@ -160,6 +188,11 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para inicializar
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -210,7 +243,10 @@ public class ViewInformationController implements Initializable {
         
     }
 
-
+/**
+ * Método para leer los animales del archivo
+ * @return lista de animales
+ */
 private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de Animales
     
     ArrayList<Animal> listaAnimales = new ArrayList<Animal>();

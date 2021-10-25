@@ -19,7 +19,10 @@ import javafx.scene.control.TextField;
  * @author montserrat
  */
 public class ViewAdministradorController implements Initializable {
-
+    
+    /**
+     * Initializes the controller class.
+     */
     @FXML
     private Button menuButton;
     @FXML
