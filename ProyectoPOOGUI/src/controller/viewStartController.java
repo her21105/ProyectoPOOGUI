@@ -108,6 +108,7 @@ public class viewStartController implements Initializable {
             
         }catch (IOException ex){
             
+            System.out.println(ex);
             JOptionPane.showMessageDialog(null, "error");
             
         }
