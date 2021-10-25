@@ -1,7 +1,5 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Clase Principal de la Interfaz Gráfica
  */
 package proyectopoogui;
 
@@ -17,6 +15,11 @@ import javafx.stage.Stage;
  */
 public class ProyectoPOOGUI extends Application {
     
+    /**
+     * Método para comenzar
+     * @param stage
+     * @throws Exception 
+     */
     @Override
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/view/viewStart.fxml"));
@@ -28,6 +31,7 @@ public class ProyectoPOOGUI extends Application {
     }
 
     /**
+     * Método para inicializar todo
      * @param args the command line arguments
      */
     public static void main(String[] args) {
