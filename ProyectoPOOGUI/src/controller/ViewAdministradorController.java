@@ -14,8 +14,8 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 /**
- * FXML Controller class
- *
+ * FXML Controller class:
+ * Controlador de Administrador
  * @author montserrat
  */
 public class ViewAdministradorController implements Initializable {
@@ -71,22 +71,42 @@ public class ViewAdministradorController implements Initializable {
         // TODO
     }    
 
+    /**
+     * Método para ir al menú
+     * @param event 
+     */
     @FXML
     private void goMenu(ActionEvent event) {
     }
-
+    
+    /**
+     * Método para ir a información
+     * @param event 
+     */
     @FXML
     private void goInfo(ActionEvent event) {
     }
-
+    
+    /**
+     * Método para ir a la sección de quién somos
+     * @param event 
+     */
     @FXML
     private void goWhoWeAre(ActionEvent event) {
     }
-
+    
+    /**
+     * Método para ir a donar
+     * @param event 
+     */
     @FXML
     private void gotDonate(ActionEvent event) {
     }
-
+    
+    /**
+     * Método para ir a Administradores
+     * @param event 
+     */
     @FXML
     private void goInicioAdministradores(ActionEvent event) {
     }
