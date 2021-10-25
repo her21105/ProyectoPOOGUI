@@ -218,8 +218,6 @@ private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de An
         
         
         ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-        System.out.println(classLoader);
-        System.out.println(classLoader.getResource("containers/animalesFile.txt"));
         File file = new File(classLoader.getResource("containers/animalesFile.txt").getFile());
         Scanner s = new Scanner(file); 
         
@@ -241,7 +239,7 @@ private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de An
         
     } catch(Exception e){
         
-        System.out.println(e);
+        
         JOptionPane.showMessageDialog(null, "error al ingresar a la base de datos");
         
     }
