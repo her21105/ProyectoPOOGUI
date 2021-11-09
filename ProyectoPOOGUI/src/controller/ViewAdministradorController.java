@@ -32,7 +32,6 @@ import javax.swing.JOptionPane;
 import model.Organizaciones;
 import model.Usuario;
 import model.Animal;
-import controller.ControladorArchivos;
 
 /**
  * FXML Controller class
@@ -146,17 +145,18 @@ public class ViewAdministradorController implements Initializable {
     @FXML
     private void newUser (ActionEvent event) throws IOException{
         
-        if(!trNewUser.getText().isEmpty() && !trNewPassword.getText().isEmpty()){
+        if(!trNewUser.getText().isEmpty() && !trNewPassword.getText().isEmpty() && sesion == true){
 
             Usuario nUP = new Usuario(trNewUser.getText(), trNewPassword.getText());
             controlador.agregarUsuario(nUP);
+            trNewUser.clear(); 
+            trNewPassword.clear();
             
-            
-            
-            
+            JOptionPane.showMessageDialog(null, "se ha agregado un nuevo usuario");
+
         }else{
             
-            JOptionPane.showMessageDialog(null, "llene todas las casillas");
+            JOptionPane.showMessageDialog(null, "llene todas las casillas/login");
         }
         
     }
@@ -164,16 +164,19 @@ public class ViewAdministradorController implements Initializable {
     @FXML
     private void newAnimal (ActionEvent event){
         
-        if(!trNewAnimal.getText().isEmpty() && !trNewDescripcionAnimal.getText().isEmpty() && !trNewInformacionAnimal.getText().isEmpty()){
+        if(!trNewAnimal.getText().isEmpty() && !trNewDescripcionAnimal.getText().isEmpty() && !trNewInformacionAnimal.getText().isEmpty() && sesion == true){
             
             
             
             Animal nA = new Animal(trNewAnimal.getText(),trNewDescripcionAnimal.getText(),trNewInformacionAnimal.getText());
-            agregarAnimal(nA);
+            controlador.agregarAnimal(nA);
+            trNewAnimal.clear();
+            trNewDescripcionAnimal.clear();
+            trNewInformacionAnimal.clear();
             JOptionPane.showMessageDialog(null, "se ha agregado un nuevo animal");
             
         }else{
-            JOptionPane.showMessageDialog(null, "llene todas las casillas");
+            JOptionPane.showMessageDialog(null, "llene todas las casillas/login");
         }
         
     }
@@ -181,15 +184,20 @@ public class ViewAdministradorController implements Initializable {
     @FXML
     private void newOrg (ActionEvent event){
         
-        if(!tfNewOrganizacion.getText().isEmpty() && !tfNewFecha.getText().isEmpty() && !tfNewUbicacion.getText().isEmpty() && !tfNewContacto.getText().isEmpty() && !tfNewGeneral.getText().isEmpty() ){
+        if(!tfNewOrganizacion.getText().isEmpty() && !tfNewFecha.getText().isEmpty() && !tfNewUbicacion.getText().isEmpty() && !tfNewContacto.getText().isEmpty() && !tfNewGeneral.getText().isEmpty() && sesion == true ){
             
             
             Organizaciones nOrg = new Organizaciones(tfNewOrganizacion.getText(), tfNewFecha.getText(), tfNewUbicacion.getText(), tfNewContacto.getText(), tfNewGeneral.getText());
-            agregarOrganizacion(nOrg);
+            tfNewOrganizacion.clear(); 
+            tfNewFecha.clear(); 
+            tfNewUbicacion.clear(); 
+            tfNewContacto.clear(); 
+            tfNewGeneral.clear();
+            controlador.agregarOrganizacion(nOrg);
             JOptionPane.showMessageDialog(null, "se ha agregado una nueva organización");
             
         }else{
-            JOptionPane.showMessageDialog(null, "llene todas las casillas");
+            JOptionPane.showMessageDialog(null, "llene todas las casillas/login");
         }
         
     }
@@ -276,7 +284,7 @@ public class ViewAdministradorController implements Initializable {
         return listaUsuarios;
     }
     
-    private boolean guardarEnFile(String nombreArchivo, String texto, boolean append) throws IOException{
+    /*private boolean guardarEnFile(String nombreArchivo, String texto, boolean append) throws IOException{
         try{
         ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
         File file1 = new File(classLoader.getResource("containers/registro.txt").getFile());
@@ -305,7 +313,7 @@ public class ViewAdministradorController implements Initializable {
      * @param u usuario
      * @return funciona
      */
-    private boolean agregarUsuario(Usuario u){
+    /*private boolean agregarUsuario(Usuario u){
         try{
             guardarEnFile("registro.txt",u.userString(),true); 
             return true;
@@ -319,14 +327,14 @@ public class ViewAdministradorController implements Initializable {
      * @param o organizacion
      * @return funciona
      */
-    private boolean agregarOrganizacion(Organizaciones o){
+    /*private boolean agregarOrganizacion(Organizaciones o){
         try{
             guardarEnFile("organizacionesFile.txt", o.organizacionesString(), true); 
             return true;
         } catch (IOException e) {
             return false;
         }
-    }
+    }*/
     
     private void loadStage(String url, Event event){
         
