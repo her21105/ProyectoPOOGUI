@@ -94,6 +94,7 @@ public class ViewAdministradorController implements Initializable {
     private void goMenu(ActionEvent event) {
         
         loadStage("/view/viewStart.fxml", event);
+        sesion = false;
         
     }
 
@@ -101,6 +102,7 @@ public class ViewAdministradorController implements Initializable {
     private void goInfo(ActionEvent event) {
         
         loadStage("/view/ViewInformation.fxml", event);
+        sesion = false;
         
     }
 
@@ -108,6 +110,7 @@ public class ViewAdministradorController implements Initializable {
     private void goWhoWeAre(ActionEvent event) {
         
         loadStage("/view/ViewWhoWeAre.fxml", event);
+        sesion = false;
         
     }
 
@@ -115,6 +118,7 @@ public class ViewAdministradorController implements Initializable {
     private void gotDonate(ActionEvent event) {
         
         loadStage("/view/ViewDonate.fxml", event);
+        sesion = false;
         
     }
 
@@ -122,6 +126,7 @@ public class ViewAdministradorController implements Initializable {
     private void goInicioAdministradores(ActionEvent event) {
         
         loadStage("/view/ViewAdministrador.fxml", event);
+        sesion = false;
         
     }
     
@@ -129,6 +134,7 @@ public class ViewAdministradorController implements Initializable {
     private void goOrg (ActionEvent event){
         
         loadStage("/view/ViewOrganizaciones.fxml", event);
+        sesion = false;
         
     }
     
@@ -141,7 +147,7 @@ public class ViewAdministradorController implements Initializable {
         boolean seguir = false;
         boolean seguir2 = false;
         ArrayList<Usuario> usuariosD = leerUsariosDelArchivo();
-        System.out.println("Ingrese su usuario: ");
+        
         
         if(tfUsuario.getText().isEmpty() || tfPassword.getText().isEmpty() || (tfUsuario.getText().isEmpty() && tfPassword.getText().isEmpty())){
             
@@ -166,12 +172,13 @@ public class ViewAdministradorController implements Initializable {
                         
                         //inicio de sesion
                         sesion = true;
+                        JOptionPane.showMessageDialog(null, "inicio de sesion con exito");
                         
                         break;
                     }
                 }
             } else{
-                System.out.println("Nombre de usuario no encontrado");
+                JOptionPane.showMessageDialog(null, "usuario no encontrado");
             }
         }
         
@@ -179,10 +186,12 @@ public class ViewAdministradorController implements Initializable {
         
     }
     
-    private static ArrayList<Usuario> leerUsariosDelArchivo(){
+    private ArrayList<Usuario> leerUsariosDelArchivo(){
+        
         ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
         try{
-            File file = new File("registro.txt");
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/registro.txt").getFile());
             Scanner s = new Scanner(file);
             
             while (s.hasNextLine()){
@@ -199,6 +208,7 @@ public class ViewAdministradorController implements Initializable {
         } catch (Exception e){
             
         }
+        
         return listaUsuarios;
     }
     
