@@ -46,7 +46,7 @@
       <TextField fx:id="tfNewUbicacion" layoutX="407.0" layoutY="308.0" />
       <TextField fx:id="tfNewContacto" layoutX="407.0" layoutY="349.0" />
       <TextField fx:id="tfNewGeneral" layoutX="407.0" layoutY="400.0" />
-      <Button fx:id="iniciarSesion" layoutX="302.0" layoutY="99.0" mnemonicParsing="false" onAction="#goWhoWeAre" text="Iniciar" />
+      <Button fx:id="iniciarSesion" layoutX="302.0" layoutY="99.0" mnemonicParsing="false" onAction="#login" text="Iniciar" />
       <PasswordField fx:id="tfPassword" layoutX="117.0" layoutY="117.0" />
       <Button fx:id="BTTOrganization" layoutX="600.0" layoutY="36.0" mnemonicParsing="false" onAction="#goOrg" text="organizaciones" />
    </children>

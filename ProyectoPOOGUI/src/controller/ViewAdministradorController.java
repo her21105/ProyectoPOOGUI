@@ -4,9 +4,12 @@
  */
 package controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -24,6 +27,7 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
+import model.Usuario;
 
 /**
  * FXML Controller class
@@ -32,6 +36,8 @@ import javax.swing.JOptionPane;
  */
 public class ViewAdministradorController implements Initializable {
 
+    private static boolean sesion;
+    
     @FXML
     private Button menuButton;
     @FXML
@@ -74,6 +80,7 @@ public class ViewAdministradorController implements Initializable {
     private Button iniciarSesion;
     @FXML
     private PasswordField tfPassword;
+    
 
     /**
      * Initializes the controller class.
@@ -123,6 +130,76 @@ public class ViewAdministradorController implements Initializable {
         
         loadStage("/view/ViewOrganizaciones.fxml", event);
         
+    }
+    
+    @FXML
+    private void login (ActionEvent event){
+                
+        //Scanner scan = new Scanner(System.in);
+        //iniciar sesion
+        //parte solo para administradores con usuario y password
+        boolean seguir = false;
+        boolean seguir2 = false;
+        ArrayList<Usuario> usuariosD = leerUsariosDelArchivo();
+        System.out.println("Ingrese su usuario: ");
+        
+        if(tfUsuario.getText().isEmpty() || tfPassword.getText().isEmpty() || (tfUsuario.getText().isEmpty() && tfPassword.getText().isEmpty())){
+            
+            JOptionPane.showMessageDialog(null, "ingrese todos los datos necesarios");
+            
+        }else{
+        
+            //String u = scan.nextLine();
+
+            for (Usuario h:usuariosD){
+                if (h.revisarUsuario(tfUsuario.getText()) == 0){
+                    seguir = true;
+                    break;
+                } else {
+                }
+            }
+            if (seguir){
+                
+                for (Usuario k:usuariosD){
+                    if (k.revisarUsuarioYPassword(tfUsuario.getText(), tfPassword.getText()) == 0){
+                        seguir2 = true;
+                        
+                        //inicio de sesion
+                        sesion = true;
+                        
+                        break;
+                    }
+                }
+            } else{
+                System.out.println("Nombre de usuario no encontrado");
+            }
+        }
+        
+        
+        
+    }
+    
+    private static ArrayList<Usuario> leerUsariosDelArchivo(){
+        ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        try{
+            File file = new File("registro.txt");
+            Scanner s = new Scanner(file);
+            
+            while (s.hasNextLine()){
+                String linea = s.nextLine();
+                String[] items = linea.split("\\|");
+                
+                String user = items[0];
+                String password = items[1];
+
+                Usuario nuevoUsuario = new Usuario(user, password);
+                listaUsuarios.add(nuevoUsuario);
+            }
+            s.close();
+        } catch (Exception e){
+            
+        }
+        return listaUsuarios;
     }
     
     private void loadStage(String url, Event event){
