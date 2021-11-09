@@ -13,6 +13,7 @@ Clase controlador maneja todos los arhivos del programa
 @version 1.0, 30/09/2021
 ******************************************************************/
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -38,13 +39,14 @@ public class ControladorArchivos {
      * true = funciona
      * false = no funciona
      */
-    public boolean guardarEnFile(String nombreArchivo, String texto, boolean append) throws IOException{
+    public boolean guardarEnFile(File nombreArchivo, String texto, boolean append) throws IOException{
         try{
-        File file1 = new File(nombreArchivo);
-        FileWriter fw = new FileWriter(file1,append);
-        PrintWriter pw = new PrintWriter(fw);
+        //File file1 = new File(nombreArchivo);
+        FileWriter fw = new FileWriter(nombreArchivo,append);
+        PrintWriter pw = new PrintWriter(fw);        
         pw.write(texto);
         pw.close();
+        fw.close();
         return true;
         }catch(Exception e){
             return false;
@@ -59,7 +61,9 @@ public class ControladorArchivos {
      */
     public boolean agregarAnimal(Animal a){
         try{
-            guardarEnFile("/containers/animalesFile.txt", a.animalString(), true); 
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/AnimalesFile.txt").getFile());
+            guardarEnFile(file, a.animalString(), true); 
             return true;
         } catch (IOException e) {
             return false;
@@ -73,7 +77,9 @@ public class ControladorArchivos {
      */
     public boolean agregarUsuario(Usuario u){
         try{
-            guardarEnFile("/containers/registro.txt", u.userString(), true); 
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/registro.txt").getFile());
+            guardarEnFile(file, u.userString(), true); 
             return true;
         } catch (IOException e) {
             return false;
@@ -87,7 +93,9 @@ public class ControladorArchivos {
      */
     public boolean agregarOrganizacion(Organizaciones o){
         try{
-            guardarEnFile("/containers/organizacionesFile.txt", o.organizacionesString(), true); 
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/organizacionesFile.txt").getFile());
+            guardarEnFile(file, o.organizacionesString(), true); 
             return true;
         } catch (IOException e) {
             return false;

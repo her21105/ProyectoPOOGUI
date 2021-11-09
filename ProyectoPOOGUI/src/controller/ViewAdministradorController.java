@@ -5,7 +5,9 @@
 package controller;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -27,7 +29,10 @@ import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
+import model.Organizaciones;
 import model.Usuario;
+import model.Animal;
+import controller.ControladorArchivos;
 
 /**
  * FXML Controller class
@@ -81,7 +86,7 @@ public class ViewAdministradorController implements Initializable {
     @FXML
     private PasswordField tfPassword;
     
-
+    ControladorArchivos controlador = new ControladorArchivos();
     /**
      * Initializes the controller class.
      */
@@ -139,6 +144,57 @@ public class ViewAdministradorController implements Initializable {
     }
     
     @FXML
+    private void newUser (ActionEvent event) throws IOException{
+        
+        if(!trNewUser.getText().isEmpty() && !trNewPassword.getText().isEmpty()){
+
+            Usuario nUP = new Usuario(trNewUser.getText(), trNewPassword.getText());
+            controlador.agregarUsuario(nUP);
+            
+            
+            
+            
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "llene todas las casillas");
+        }
+        
+    }
+    
+    @FXML
+    private void newAnimal (ActionEvent event){
+        
+        if(!trNewAnimal.getText().isEmpty() && !trNewDescripcionAnimal.getText().isEmpty() && !trNewInformacionAnimal.getText().isEmpty()){
+            
+            
+            
+            Animal nA = new Animal(trNewAnimal.getText(),trNewDescripcionAnimal.getText(),trNewInformacionAnimal.getText());
+            agregarAnimal(nA);
+            JOptionPane.showMessageDialog(null, "se ha agregado un nuevo animal");
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "llene todas las casillas");
+        }
+        
+    }
+    
+    @FXML
+    private void newOrg (ActionEvent event){
+        
+        if(!tfNewOrganizacion.getText().isEmpty() && !tfNewFecha.getText().isEmpty() && !tfNewUbicacion.getText().isEmpty() && !tfNewContacto.getText().isEmpty() && !tfNewGeneral.getText().isEmpty() ){
+            
+            
+            Organizaciones nOrg = new Organizaciones(tfNewOrganizacion.getText(), tfNewFecha.getText(), tfNewUbicacion.getText(), tfNewContacto.getText(), tfNewGeneral.getText());
+            agregarOrganizacion(nOrg);
+            JOptionPane.showMessageDialog(null, "se ha agregado una nueva organización");
+            
+        }else{
+            JOptionPane.showMessageDialog(null, "llene todas las casillas");
+        }
+        
+    }
+    
+    @FXML
     private void login (ActionEvent event){
                 
         //Scanner scan = new Scanner(System.in);
@@ -160,11 +216,13 @@ public class ViewAdministradorController implements Initializable {
             for (Usuario h:usuariosD){
                 if (h.revisarUsuario(tfUsuario.getText()) == 0){
                     seguir = true;
-                    break;
+                    
                 } else {
+                    
+                
                 }
             }
-            if (seguir){
+            if (seguir == true){
                 
                 for (Usuario k:usuariosD){
                     if (k.revisarUsuarioYPassword(tfUsuario.getText(), tfPassword.getText()) == 0){
@@ -175,10 +233,15 @@ public class ViewAdministradorController implements Initializable {
                         JOptionPane.showMessageDialog(null, "inicio de sesion con exito");
                         
                         break;
+                    }else{
+                                                
                     }
                 }
+                if(seguir2 == false){
+                    JOptionPane.showMessageDialog(null, "verifique sus datos");
+                }
             } else{
-                JOptionPane.showMessageDialog(null, "usuario no encontrado");
+                JOptionPane.showMessageDialog(null, "verifique sus datos");
             }
         }
         
@@ -207,9 +270,62 @@ public class ViewAdministradorController implements Initializable {
             s.close();
         } catch (Exception e){
             
+            System.out.println(e);
         }
-        
+        System.out.println(listaUsuarios);
         return listaUsuarios;
+    }
+    
+    private boolean guardarEnFile(String nombreArchivo, String texto, boolean append) throws IOException{
+        try{
+        ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+        File file1 = new File(classLoader.getResource("containers/registro.txt").getFile());
+        FileWriter fw = new FileWriter(file1,append);
+        PrintWriter pw = new PrintWriter(fw);
+        pw.write(texto);
+        pw.close();
+        return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
+    
+     private boolean agregarAnimal(Animal a){
+        try{
+            guardarEnFile("animalesFile.txt", a.animalString(), true); 
+            System.out.println(a.animalString());
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+    
+    /** 
+     * Este metodo agrega usuarios a el file
+     * @param u usuario
+     * @return funciona
+     */
+    private boolean agregarUsuario(Usuario u){
+        try{
+            guardarEnFile("registro.txt",u.userString(),true); 
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+    
+    /** 
+     * Este metodo agrega organizaciones con todo y su informacion al file
+     * @param o organizacion
+     * @return funciona
+     */
+    private boolean agregarOrganizacion(Organizaciones o){
+        try{
+            guardarEnFile("organizacionesFile.txt", o.organizacionesString(), true); 
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
     }
     
     private void loadStage(String url, Event event){

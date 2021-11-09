@@ -20,12 +20,12 @@
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#b6c867" height="315.0" layoutX="23.0" layoutY="163.0" stroke="BLACK" strokeType="INSIDE" width="173.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffc074" height="315.0" layoutX="220.0" layoutY="163.0" stroke="BLACK" strokeType="INSIDE" width="160.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#01937c" height="315.0" layoutX="400.0" layoutY="163.0" stroke="BLACK" strokeType="INSIDE" width="173.0" />
-      <Button fx:id="btSubmitUser" layoutX="79.0" layoutY="435.0" mnemonicParsing="false" text="Ingresar" />
-      <Button fx:id="btSubmitAnimal" layoutX="267.0" layoutY="435.0" mnemonicParsing="false" text="Ingresar" />
+      <Button fx:id="btSubmitUser" layoutX="79.0" layoutY="435.0" mnemonicParsing="false" onAction="#newUser" text="Ingresar" />
+      <Button fx:id="btSubmitAnimal" layoutX="267.0" layoutY="435.0" mnemonicParsing="false" onAction="#newAnimal" text="Ingresar" />
       <Label layoutX="46.0" layoutY="175.0" text="Ingresar nuevo Usuario:" />
       <Label layoutX="238.0" layoutY="175.0" text="Ingresar nuevo Animal" />
       <Label layoutX="409.0" layoutY="175.0" text="Ingresar nueva Organizacion" textFill="WHITE" />
-      <Button fx:id="btSubmitOrganizacion" layoutX="456.0" layoutY="435.0" mnemonicParsing="false" text="Ingresar" />
+      <Button fx:id="btSubmitOrganizacion" layoutX="456.0" layoutY="435.0" mnemonicParsing="false" onAction="#newOrg" text="Ingresar" />
       <Label layoutX="40.0" layoutY="223.0" text="Nuevo Usuario:" />
       <Label layoutX="34.0" layoutY="295.0" text="Nuevo Password:" />
       <TextField fx:id="trNewUser" layoutX="37.0" layoutY="249.0" prefHeight="26.0" prefWidth="128.0" />
