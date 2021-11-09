@@ -20,7 +20,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import model.Animal;
-import model.Organizacion;
+import model.Organizaciones;
 import model.Usuario;
 
 
@@ -85,7 +85,7 @@ public class ControladorArchivos {
      * @param o organizacion
      * @return funciona
      */
-    public boolean agregarOrganizacion(Organizacion o){
+    public boolean agregarOrganizacion(Organizaciones o){
         try{
             guardarEnFile("/containers/organizacionesFile.txt", o.organizacionesString(), true); 
             return true;
@@ -160,8 +160,8 @@ public class ControladorArchivos {
      * Sirve para poder utilizar las organizaciones como objetos junto a sus metodos
      * @return ArrayList<Organizaciones>
      */
-    public ArrayList<Organizacion> leerOrganizacionesDelArchivo(){
-        ArrayList<Organizacion> listaOrganizaciones = new ArrayList<Organizacion>();
+    public ArrayList<Organizaciones> leerOrganizacionesDelArchivo(){
+        ArrayList<Organizaciones> listaOrganizaciones = new ArrayList<Organizaciones>();
         try{
             File file = new File("/containers/organizacionesFile.txt");
             Scanner s = new Scanner(file);
@@ -176,7 +176,7 @@ public class ControladorArchivos {
                 String informacionDeContacto= items[3];
                 String informacion= items[4];
 
-                Organizacion nuevaOrganizaciones = new Organizacion(nombre, annioDeCreacion, lugar, informacionDeContacto, informacion);
+                Organizaciones nuevaOrganizaciones = new Organizaciones(nombre, annioDeCreacion, lugar, informacionDeContacto, informacion);
                 listaOrganizaciones.add(nuevaOrganizaciones);
             }
             s.close();

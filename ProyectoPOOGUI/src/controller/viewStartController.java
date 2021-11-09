@@ -1,5 +1,7 @@
 /*
- * Archivo viewStartController
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
@@ -26,15 +28,11 @@ import javafx.stage.WindowEvent;
 import javax.swing.JOptionPane;
 
 /**
- * FXML Controller class:
- * Controlador del Inicio
+ *
  * @author Joabh
  */
 public class viewStartController implements Initializable {
     
-    /**
-     * Initializes the controller class.
-     */
     @FXML
     private Button menuButton;
     
@@ -50,19 +48,11 @@ public class viewStartController implements Initializable {
     @FXML
     private Button InicioAdministradorButton;
     
-    /**
-     * Método para ir a inicio de administradores
-     * @param event 
-     */
     @FXML
     private void goInicioAdministradores(ActionEvent event){
         loadStage("/view/ViewAdministrador.fxml", event);
     }
     
-    /**
-     * Método para ir al menú
-     * @param event 
-     */
     @FXML
     private void goMenu(ActionEvent event){
         
@@ -70,10 +60,6 @@ public class viewStartController implements Initializable {
         
     }
     
-    /**
-     * Método para ir a información
-     * @param event 
-     */
     @FXML
     private void goInfo (ActionEvent event){
         
@@ -81,10 +67,6 @@ public class viewStartController implements Initializable {
         
     }
     
-    /**
-     * Método para ir a quiénes somos
-     * @param event 
-     */
     @FXML
     private void goWhoWeAre (ActionEvent event){
         
@@ -92,10 +74,6 @@ public class viewStartController implements Initializable {
         
     }
     
-    /**
-     * Método para ir a Donar
-     * @param event 
-     */
     @FXML
     private void goDonate (ActionEvent event){
         
@@ -103,11 +81,13 @@ public class viewStartController implements Initializable {
         
     }
     
-    /**
-     * Método para cargar el escenario
-     * @param url
-     * @param event 
-     */
+    @FXML
+    private void goOrg (ActionEvent event){
+        
+        loadStage("/view/ViewOrganizaciones.fxml", event);
+        
+    }
+    
     private void loadStage(String url, Event event){
         
         try{
@@ -143,11 +123,11 @@ public class viewStartController implements Initializable {
         
     }
     
-    /**
-     * Método para inizializar
-     * @param url
-     * @param rb 
-     */
+    
+    
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO

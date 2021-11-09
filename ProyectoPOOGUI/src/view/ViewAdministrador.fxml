@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewAdministradorController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="510.0" prefWidth="770.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewAdministradorController">
    <children>
       <Button fx:id="menuButton" layoutX="35.0" layoutY="36.0" mnemonicParsing="false" onAction="#goMenu" text="Inicio" />
       <Button fx:id="informButton" layoutX="93.0" layoutY="37.0" mnemonicParsing="false" onAction="#goInfo" text="Informacion" />
@@ -48,5 +48,6 @@
       <TextField fx:id="tfNewGeneral" layoutX="407.0" layoutY="400.0" />
       <Button fx:id="iniciarSesion" layoutX="302.0" layoutY="99.0" mnemonicParsing="false" onAction="#goWhoWeAre" text="Iniciar" />
       <PasswordField fx:id="tfPassword" layoutX="117.0" layoutY="117.0" />
+      <Button fx:id="BTTOrganization" layoutX="600.0" layoutY="36.0" mnemonicParsing="false" onAction="#goOrg" text="organizaciones" />
    </children>
 </AnchorPane>

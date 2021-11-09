@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewWhoWeAreController">
+<AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewWhoWeAreController">
    <children>
       <Button fx:id="menuButton" layoutX="28.0" layoutY="46.0" mnemonicParsing="false" onAction="#goMenu" text="Inicio" />
       <Button fx:id="informButton" layoutX="89.0" layoutY="46.0" mnemonicParsing="false" onAction="#goInfo" text="Información" />
@@ -25,5 +25,6 @@
       <Label layoutX="56.0" layoutY="418.0" text="Vision:" />
       <Label layoutX="28.0" layoutY="368.0" prefHeight="35.0" prefWidth="492.0" text="Lograr la concientizacion de la importancia de la biodiversidad y su cuidado." />
       <Label layoutX="19.0" layoutY="446.0" prefHeight="26.0" prefWidth="538.0" text="Difundir informacion de los animales, para un mayor entendimiento de su aporte a la biodiversidad." />
+      <Button fx:id="BTTOrganization" layoutX="592.0" layoutY="46.0" mnemonicParsing="false" onAction="#goOrg" text="organizaciones" />
    </children>
 </AnchorPane>

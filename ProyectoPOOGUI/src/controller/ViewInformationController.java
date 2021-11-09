@@ -1,5 +1,7 @@
 /*
- * Archivo ViewInformationController.java
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
 package controller;
 
@@ -37,8 +39,8 @@ import javafx.util.StringConverter;
 
 
 /**
- * FXML Controller class:
- * Controlador de Informacion
+ * FXML Controller class
+ *
  * @author Joabh
  */
 public class ViewInformationController implements Initializable {
@@ -70,10 +72,6 @@ public class ViewInformationController implements Initializable {
     @FXML
     private Button InicioAdministradorButton;
     
-    /**
-     * Método para ir a la seccion de inicio de administradores
-     * @param event 
-     */
     @FXML
     private void goInicioAdministradoresgo(ActionEvent event){
         loadStage("/view/ViewAdministrador.fxml", event);
@@ -84,10 +82,6 @@ public class ViewInformationController implements Initializable {
     
     private int select;
     
-    /**
-     * Método para ir al menú
-     * @param event 
-     */
     @FXML
     private void goMenu(ActionEvent event){
         
@@ -95,10 +89,6 @@ public class ViewInformationController implements Initializable {
         
     }
     
-    /**
-     * Método para ir a Inforamción
-     * @param event 
-     */
     @FXML
     private void goInfo (ActionEvent event){
         
@@ -106,10 +96,6 @@ public class ViewInformationController implements Initializable {
         
     }
     
-    /**
-     * Método para ir a ¿Quiénes Somos?
-     * @param event 
-     */
     @FXML
     private void goWhoWeAre (ActionEvent event){
         
@@ -117,10 +103,6 @@ public class ViewInformationController implements Initializable {
         
     }
     
-    /**
-     * Método para ir a Donar
-     * @param event 
-     */
     @FXML
     private void goDonate (ActionEvent event){
         
@@ -128,30 +110,22 @@ public class ViewInformationController implements Initializable {
         
     }
     
-    /**
-     * Método para ir a Animales
-     * @param e 
-     */
     @FXML
     private void InfoAnimals(ActionEvent e){
         
-      /*  select = AnimalList.getSelectionModel().getSelectedIndex();
-        
-        Animal animal = leerAnimalesDelArchivo().get(select);
-        String string = "nombres: "+animal.getNombre()+"\n"
-                + "descripción: "+animal.getDescripcion()+"\n"
-                + "información: "+animal.getInformacion();
-        
-        ShowInfo.setText(string); */
+      
         
         
     }
     
-    /**
-     * Método para cargar el escenario
-     * @param url
-     * @param event 
-     */
+    @FXML
+    private void goOrg (ActionEvent event){
+        
+        loadStage("/view/ViewOrganizaciones.fxml", event);
+        
+    }
+    
+    
     private void loadStage(String url, Event event){//abre otras pestañas y cierra la actual
         
         try{
@@ -186,11 +160,6 @@ public class ViewInformationController implements Initializable {
         
     }
     
-    /**
-     * Método para inicializar
-     * @param url
-     * @param rb 
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -241,10 +210,7 @@ public class ViewInformationController implements Initializable {
         
     }
 
-/**
- * Método para leer los animales del archivo
- * @return lista de animales
- */
+
 private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de Animales
     
     ArrayList<Animal> listaAnimales = new ArrayList<Animal>();
