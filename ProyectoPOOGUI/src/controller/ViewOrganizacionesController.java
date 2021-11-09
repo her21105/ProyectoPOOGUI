@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import javafx.application.Platform;
+import static javafx.beans.binding.Bindings.select;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -42,6 +43,8 @@ public class ViewOrganizacionesController implements Initializable {
     /**
      * Initializes the controller class.
      */
+    
+    private int select;
     
     @FXML
     private Button menuButton;
@@ -171,9 +174,11 @@ public class ViewOrganizacionesController implements Initializable {
         select = OrganizationList.getSelectionModel().getSelectedIndex();
         
         Organizaciones organizaciones = leerOrganizacionesDelArchivo().get(select);
-        String string = "nombres: "+organizaciones.getNombre()+"\n"
-                + "descripción: "+organizaciones.getDescripcion()+"\n"
-                + "información: "+organizaciones.getInformacion();
+        String string = "nombre: "+organizaciones.getNombre()+"\n"
+                + "año de creación : "+organizaciones.getAnnioDeCreacion()+"\n"
+                + "información: "+organizaciones.getInformacion()+"\n"
+                + "lugar: "+organizaciones.getLugar()+"\n"
+                + "contacto: "+organizaciones.getInformacionDeContacto();
         
         ShowInfo.setText(string);
 
