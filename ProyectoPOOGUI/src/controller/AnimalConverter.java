@@ -15,11 +15,21 @@ import model.Animal;
  */
 public class AnimalConverter extends StringConverter<Animal> {
 
+    
+    /**
+     * Metodo para convertir un animal en un string
+    *@param Animal animal
+    * @return String
+    */
     @Override
     public String toString(Animal animal) {
         return animal == null ? null: animal.getNombre();
     }
-
+    /**
+     * Metodo para convertir un string en un animal
+    *@return Animal animal
+    * @param String
+    */
     @Override
     public Animal fromString(String string) {
         return null;
