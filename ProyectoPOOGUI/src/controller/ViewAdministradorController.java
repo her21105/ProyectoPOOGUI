@@ -102,6 +102,11 @@ public class ViewAdministradorController implements Initializable {
         
     }
 
+    
+    /**
+     * Metodo para ir a informacion
+    *@param ActionEvent event
+    */
     @FXML
     private void goInfo(ActionEvent event) {
         
@@ -109,7 +114,11 @@ public class ViewAdministradorController implements Initializable {
         sesion = false;
         
     }
-
+    
+    /**
+     * Metodo para ir a WhoWeAre
+    *@param ActionEvent event
+    */
     @FXML
     private void goWhoWeAre(ActionEvent event) {
         
@@ -118,6 +127,10 @@ public class ViewAdministradorController implements Initializable {
         
     }
 
+    /**
+     * Metodo para ir a donate
+    *@param ActionEvent event
+    */
     @FXML
     private void gotDonate(ActionEvent event) {
         
@@ -126,6 +139,10 @@ public class ViewAdministradorController implements Initializable {
         
     }
 
+    /**
+     * Metodo para ir a inicio administradores
+    *@param ActionEvent event
+    */
     @FXML
     private void goInicioAdministradores(ActionEvent event) {
         
@@ -133,7 +150,11 @@ public class ViewAdministradorController implements Initializable {
         sesion = false;
         
     }
-    
+   
+    /**
+     * Metodo para ir a Organizaciones
+    *@param ActionEvent event
+    */
     @FXML
     private void goOrg (ActionEvent event){
         
@@ -141,7 +162,11 @@ public class ViewAdministradorController implements Initializable {
         sesion = false;
         
     }
-    
+
+    /**
+     * Metodo para agregar un nuevo usuario
+    *@param ActionEvent event
+    */
     @FXML
     private void newUser (ActionEvent event) throws IOException{
         
@@ -160,7 +185,11 @@ public class ViewAdministradorController implements Initializable {
         }
         
     }
-    
+
+    /**
+     * Metodo para agregar un nuevo animal
+    *@param ActionEvent event
+    */
     @FXML
     private void newAnimal (ActionEvent event){
         
