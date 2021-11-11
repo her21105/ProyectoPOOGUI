@@ -209,7 +209,12 @@ public class ViewAdministradorController implements Initializable {
         }
         
     }
+
     
+    /**
+     * Metodo para agregar una nueva organizacion
+    *@param ActionEvent event
+    */
     @FXML
     private void newOrg (ActionEvent event){
         
@@ -230,7 +235,11 @@ public class ViewAdministradorController implements Initializable {
         }
         
     }
-    
+
+    /**
+     * Metodo para ingresar sesion
+    *@param ActionEvent event
+    */
     @FXML
     private void login (ActionEvent event){
                 
