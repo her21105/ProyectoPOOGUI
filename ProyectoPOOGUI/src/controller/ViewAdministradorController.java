@@ -294,7 +294,11 @@ public class ViewAdministradorController implements Initializable {
         
         
     }
-    
+
+    /**
+     * Metodo para leer usuarios del archivo en cuestion
+    *@return ArrayList Usuario
+    */
     private ArrayList<Usuario> leerUsariosDelArchivo(){
         
         ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
@@ -374,6 +378,13 @@ public class ViewAdministradorController implements Initializable {
         }
     }*/
     
+    
+    
+    /**
+     * Metodo para mostrar la pagina
+    *@param String url
+    * @param Event event
+    */
     private void loadStage(String url, Event event){
         
         try{
