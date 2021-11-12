@@ -82,7 +82,10 @@ public class ViewOrganizacionesController implements Initializable {
         loadStage("/view/ViewAdministrador.fxml", event);
     }
     
-    
+    /**
+     * Métood para ir al menú
+     * @param event 
+     */
     @FXML
     private void goMenu(ActionEvent event){
         
