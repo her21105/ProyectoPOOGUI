@@ -104,6 +104,10 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a la seccion de quienes somos
+     * @param event 
+     */
     @FXML
     private void goWhoWeAre (ActionEvent event){
         
