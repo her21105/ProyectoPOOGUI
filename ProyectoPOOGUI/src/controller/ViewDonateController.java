@@ -127,7 +127,7 @@ public class ViewDonateController implements Initializable {
         
     }
     /**
-     * Métood para inizializar tood 
+     * Métood para inizializar todo
      * @param url
      * @param rb 
      */

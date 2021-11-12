@@ -82,6 +82,10 @@ public class ViewInformationController implements Initializable {
     
     private int select;
     
+    /**
+     * Método para ir al menú
+     * @param event 
+     */
     @FXML
     private void goMenu(ActionEvent event){
         
