@@ -104,13 +104,20 @@ public class ViewOrganizacionesController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a la sección de quienes somos
+     * @param event 
+     */
     @FXML
     private void goWhoWeAre (ActionEvent event){
         
         loadStage("/view/ViewWhoWeAre.fxml", event);
         
     }
-    
+    /**
+     * Método para ir a la sección de donar
+     * @param event 
+     */
     @FXML
     private void goDonate (ActionEvent event){
         
