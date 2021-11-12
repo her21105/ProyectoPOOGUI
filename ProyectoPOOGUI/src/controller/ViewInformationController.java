@@ -149,7 +149,11 @@ public class ViewInformationController implements Initializable {
         
     }
     
-    
+    /**
+     * Método para abrir el escenario y cerrar la pestaña actual
+     * @param url
+     * @param event 
+     */
     private void loadStage(String url, Event event){//abre otras pestañas y cierra la actual
         
         try{

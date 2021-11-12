@@ -89,7 +89,7 @@ public class ViewDonateController implements Initializable {
         
     }
     /**
-     * Método para cargar el escenario
+     * Método para cargar el escenario y cerrar la pestaña actual
      * @param url
      * @param event 
      */
