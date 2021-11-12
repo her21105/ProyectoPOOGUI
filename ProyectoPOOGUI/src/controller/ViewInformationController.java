@@ -150,7 +150,7 @@ public class ViewInformationController implements Initializable {
     }
     
     /**
-     * Método para abrir el escenario y cerrar la pestaña actual
+     * Método para abrir las pestañas y cerrar la actual
      * @param url
      * @param event 
      */

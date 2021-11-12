@@ -145,7 +145,7 @@ public class ViewOrganizacionesController implements Initializable {
     }
     
     /**
-     * Método para cargar el escenario y cerrar la pestaña actual
+     * Método para abrir pestañas y cerrar la actual
      * @param url
      * @param event 
      */
