@@ -93,6 +93,10 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a la sección de inicio
+     * @param event 
+     */
     @FXML
     private void goInfo (ActionEvent event){
         
