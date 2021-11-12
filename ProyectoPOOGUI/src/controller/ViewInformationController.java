@@ -187,7 +187,11 @@ public class ViewInformationController implements Initializable {
         
         
     }
-    
+    /**
+     * Método para inicializar
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -238,7 +242,10 @@ public class ViewInformationController implements Initializable {
         
     }
 
-
+/**
+ * Mátodo para leer a los animales desde el archivo
+ * @return arraylist de animales
+ */
 private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de Animales
     
     ArrayList<Animal> listaAnimales = new ArrayList<Animal>();
