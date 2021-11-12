@@ -88,7 +88,11 @@ public class ViewDonateController implements Initializable {
         loadStage("/view/ViewOrganizaciones.fxml", event);
         
     }
-    
+    /**
+     * Método para cargar el escenario
+     * @param url
+     * @param event 
+     */
     private void loadStage(String url, Event event){
         
         try{
