@@ -125,12 +125,17 @@ public class ViewOrganizacionesController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a la sección de organizaciones
+     * @param event 
+     */
     @FXML
     private void goOrg (ActionEvent event){
         
         loadStage("/view/ViewOrganizaciones.fxml", event);
         
     }
+    
 
     @FXML
     private void InfoOrganization (ActionEvent event){
@@ -139,6 +144,11 @@ public class ViewOrganizacionesController implements Initializable {
         
     }
     
+    /**
+     * Método para cargar el escenario y cerrar la pestaña actual
+     * @param url
+     * @param event 
+     */
     private void loadStage(String url, Event event){//abre otras pestañas y cierra la actual
         
         try{
