@@ -183,6 +183,11 @@ public class ViewOrganizacionesController implements Initializable {
         
     }
     
+    /**
+     * Método que inicializa todo
+     * @param url
+     * @param rb 
+     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -215,6 +220,10 @@ public class ViewOrganizacionesController implements Initializable {
     });
     }    
     
+    /**
+     * Método para leer las organizaciones del archivo
+     * @return arraylist de organizaciones
+     */
     private ArrayList<Organizaciones> leerOrganizacionesDelArchivo(){
         ArrayList<Organizaciones> listaOrganizaciones = new ArrayList<Organizaciones>();
         try{
