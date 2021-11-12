@@ -73,10 +73,15 @@ public class ViewOrganizacionesController implements Initializable {
     @FXML
     private Button BTTOrganization;
     
+    /**
+     * Método para ir a la seccion de administradores
+     * @param event 
+     */
     @FXML
     private void goInicioAdministradoresgo(ActionEvent event){
         loadStage("/view/ViewAdministrador.fxml", event);
     }
+    
     
     @FXML
     private void goMenu(ActionEvent event){
