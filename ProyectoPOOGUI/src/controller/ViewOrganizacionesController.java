@@ -93,6 +93,10 @@ public class ViewOrganizacionesController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a la sección de información
+     * @param event 
+     */
     @FXML
     private void goInfo (ActionEvent event){
         
