@@ -115,6 +115,10 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a la sección de donar
+     * @param event 
+     */
     @FXML
     private void goDonate (ActionEvent event){
         
@@ -122,6 +126,10 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a la sección de animales
+     * @param e 
+     */
     @FXML
     private void InfoAnimals(ActionEvent e){
         
@@ -130,6 +138,10 @@ public class ViewInformationController implements Initializable {
         
     }
     
+    /**
+     * Método para ir a las organizaciones
+     * @param event 
+     */
     @FXML
     private void goOrg (ActionEvent event){
         
