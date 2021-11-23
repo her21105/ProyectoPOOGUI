@@ -23,6 +23,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -84,6 +85,38 @@ public class ViewAdministradorController implements Initializable {
     private Button iniciarSesion;
     @FXML
     private PasswordField tfPassword;
+    @FXML
+    private TextField MUser;
+    @FXML
+    private TextField MPassword;
+    @FXML
+    private ComboBox CBUsers;
+    @FXML
+    private TextField MAnimals;
+    @FXML
+    private TextField MDescripcionAnimal;
+    @FXML
+    private TextField MInformationAnimal;
+    @FXML
+    private ComboBox CBAnimals;
+    @FXML
+    private TextField MOrgName;
+    @FXML
+    private TextField MDateOrg;
+    @FXML
+    private TextField MUbicationOrg;
+    @FXML
+    private TextField MContactOrg;
+    @FXML
+    private TextField MGeneralOrg;
+    @FXML
+    private ComboBox CBOrganizaciones;
+    @FXML
+    private Button BTMUser;
+    @FXML
+    private Button BTMAnimals;
+    @FXML
+    private Button BTMOrg;
     
     ControladorArchivos controlador = new ControladorArchivos();
     /**
@@ -92,6 +125,9 @@ public class ViewAdministradorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+        
+        
     }    
 
     @FXML
@@ -326,60 +362,7 @@ public class ViewAdministradorController implements Initializable {
         return listaUsuarios;
     }
     
-    /*private boolean guardarEnFile(String nombreArchivo, String texto, boolean append) throws IOException{
-        try{
-        ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-        File file1 = new File(classLoader.getResource("containers/registro.txt").getFile());
-        FileWriter fw = new FileWriter(file1,append);
-        PrintWriter pw = new PrintWriter(fw);
-        pw.write(texto);
-        pw.close();
-        return true;
-        }catch(Exception e){
-            return false;
-        }
-    }
-    
-     private boolean agregarAnimal(Animal a){
-        try{
-            guardarEnFile("animalesFile.txt", a.animalString(), true); 
-            System.out.println(a.animalString());
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-    }
-    
-    /** 
-     * Este metodo agrega usuarios a el file
-     * @param u usuario
-     * @return funciona
-     */
-    /*private boolean agregarUsuario(Usuario u){
-        try{
-            guardarEnFile("registro.txt",u.userString(),true); 
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-    }
-    
-    /** 
-     * Este metodo agrega organizaciones con todo y su informacion al file
-     * @param o organizacion
-     * @return funciona
-     */
-    /*private boolean agregarOrganizacion(Organizaciones o){
-        try{
-            guardarEnFile("organizacionesFile.txt", o.organizacionesString(), true); 
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-    }*/
-    
-    
-    
+ 
     /**
      * Metodo para mostrar la pagina
     *@param String url

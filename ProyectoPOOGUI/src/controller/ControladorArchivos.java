@@ -20,6 +20,7 @@ import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import model.Animal;
 import model.Organizaciones;
 import model.Usuario;
@@ -102,6 +103,39 @@ public class ControladorArchivos {
         } catch (IOException e) {
             return false;
         }
+    }
+    
+    public void modificar(String archivo, int valor){
+        
+        try{
+            switch(valor){
+                
+                case 1:
+                    ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+                    File file = new File(classLoader.getResource("/containers/organizacionesFile.txt").getFile());
+                    
+                    
+                    break;
+                    
+                case 2:
+                    
+                    break;
+                    
+                case 3:
+                    
+                    break;
+                    
+                
+            }
+            
+            
+            
+        }catch (Exception e){
+            
+            JOptionPane.showMessageDialog(null, "error");
+            
+        }
+        
     }
 
 
