@@ -8,7 +8,6 @@
       <Button fx:id="menuButton" layoutX="25.0" layoutY="40.0" mnemonicParsing="false" onAction="#goMenu" text="Inicio" />
       <Button fx:id="informButton" layoutX="82.0" layoutY="40.0" mnemonicParsing="false" onAction="#goInfo" text="Información" />
       <Button fx:id="whoWeAreButton" layoutX="173.0" layoutY="40.0" mnemonicParsing="false" onAction="#goWhoWeAre" text="¿Quienes somos?" />
-      <Button fx:id="DonateButton" layoutX="296.0" layoutY="40.0" mnemonicParsing="false" onAction="#goDonate" text="Donar" />
       <Button fx:id="InicioAdministradorButton" layoutX="375.0" layoutY="40.0" mnemonicParsing="false" onAction="#goInicioAdministradores" text="Inicio de sesion administradores" />
       <Button fx:id="BTTOrganization" layoutX="585.0" layoutY="40.0" mnemonicParsing="false" onAction="#goOrg" text="organizaciones" />
    </children>
