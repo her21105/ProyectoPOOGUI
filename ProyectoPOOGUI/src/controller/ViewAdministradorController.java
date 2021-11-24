@@ -129,6 +129,20 @@ public class ViewAdministradorController implements Initializable {
         
         
     }    
+    
+    @FXML
+    private void MAnimal(ActionEvent event){
+        
+    }
+    @FXML
+    private void MUser(ActionEvent event){
+        
+    }
+    
+    @FXML
+    private void MOrg (ActionEvent event){
+        
+    }
 
     @FXML
     private void goMenu(ActionEvent event) {

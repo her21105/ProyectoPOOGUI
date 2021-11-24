@@ -65,7 +65,7 @@ public class ControladorArchivos {
     public boolean agregarAnimal(Animal a){
         try{
             ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-            File file = new File(classLoader.getResource("/containers/animalesFile.txt").getFile());
+            File file = new File(classLoader.getResource("containers/animalesFile.txt").getFile());
             guardarEnFile(file, a.animalString(), true); 
             return true;
         } catch (IOException e) {
@@ -81,7 +81,7 @@ public class ControladorArchivos {
     public boolean agregarUsuario(Usuario u){
         try{
             ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-            File file = new File(classLoader.getResource("/containers/registro.txt").getFile());
+            File file = new File(classLoader.getResource("containers/registro.txt").getFile());
             guardarEnFile(file, u.userString(), true); 
             return true;
         } catch (IOException e) {
@@ -97,7 +97,7 @@ public class ControladorArchivos {
     public boolean agregarOrganizacion(Organizaciones o){
         try{
             ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-            File file = new File(classLoader.getResource("/containers/organizacionesFile.txt").getFile());
+            File file = new File(classLoader.getResource("containers/organizacionesFile.txt").getFile());
             guardarEnFile(file, o.organizacionesString(), true); 
             return true;
         } catch (IOException e) {
@@ -112,7 +112,7 @@ public class ControladorArchivos {
                 
                 case 1:
                     ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-                    File file = new File(classLoader.getResource("/containers/organizacionesFile.txt").getFile());
+                    File file = new File(classLoader.getResource("containers/organizacionesFile.txt").getFile());
                     
                     
                     break;
