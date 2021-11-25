@@ -271,7 +271,7 @@ public class ViewAdministradorController implements Initializable {
     }
     
     /**
-     * Metodo para obtener usuarios
+     * Metodo para obtener los usuarios
      * @return arraylist usuarios
      */
     private ArrayList<Usuario> leerUsariosDelArchivo(){
@@ -298,6 +298,10 @@ public class ViewAdministradorController implements Initializable {
         return listaUsuarios;
     }
     
+    /**
+     * Metodo para obtener los animales
+     * @return 
+     */
     private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de Animales
     
     ArrayList<Animal> listaAnimales = new ArrayList<Animal>();
