@@ -144,6 +144,9 @@ public class ViewAdministradorController implements Initializable {
         
     }
     
+    /**
+     * Metodo para agregar un nuevo animal
+     */
     private void CBanimales(){
         
         ArrayList<Animal> aux = new ArrayList<Animal>();
