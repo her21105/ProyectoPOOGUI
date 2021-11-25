@@ -437,6 +437,10 @@ public class ViewAdministradorController implements Initializable {
         
     }
     
+    /**
+     * Metodo para ingresar una organizacion
+     * @param event 
+     */
     @FXML
     private void MOrg (ActionEvent event){
         
