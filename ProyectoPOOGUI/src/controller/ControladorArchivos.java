@@ -155,8 +155,14 @@ public class ControladorArchivos {
         }
     }
     
-    
-
+    /**
+     * Metodo para guardar la informacion de los animales
+     * @param nombre
+     * @param description
+     * @param information
+     * @param valor
+     * @throws IOException 
+     */
     public void ModAnimales(String nombre, String description, String information, int valor) throws IOException{
         
         ArrayList<Animal> aux = new ArrayList<Animal>();
