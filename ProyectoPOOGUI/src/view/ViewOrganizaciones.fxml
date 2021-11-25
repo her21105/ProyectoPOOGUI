@@ -10,7 +10,6 @@
       <Button fx:id="menuButton" layoutX="35.0" layoutY="35.0" mnemonicParsing="false" onAction="#goMenu" text="Inicio" />
       <Button fx:id="informButton" layoutX="107.0" layoutY="35.0" mnemonicParsing="false" onAction="#goInfo" text="Información" />
       <Button fx:id="whoWeAreButton" layoutX="205.0" layoutY="35.0" mnemonicParsing="false" onAction="#goWhoWeAre" text="¿Quienes somos?" />
-      <Button fx:id="DonateButton" layoutX="338.0" layoutY="35.0" mnemonicParsing="false" onAction="#goDonate" text="Donar" />
       <Button fx:id="IniciarAdministradorButton" layoutX="420.0" layoutY="35.0" mnemonicParsing="false" onAction="#goInicioAdministradoresgo" text="Iniciar sesion de administradores" />
       <ComboBox fx:id="OrganizationList" layoutX="460.0" layoutY="104.0" onAction="#InfoOrganization" prefWidth="150.0" />
       <Label fx:id="ShowInfo" layoutX="35.0" layoutY="75.0" prefHeight="282.0" prefWidth="352.0" />
