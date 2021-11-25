@@ -292,7 +292,11 @@ public class ControladorArchivos {
     
     
     }
-
+    
+    /**
+     * Metodo para obtener las organizaciones desde el archivo
+     * @return arraylist organizaciones
+     */
     private ArrayList<Organizaciones> leerOrganizacionesDelArchivo(){
         ArrayList<Organizaciones> listaOrganizaciones = new ArrayList<Organizaciones>();
         try{
