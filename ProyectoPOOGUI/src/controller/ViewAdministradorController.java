@@ -372,7 +372,7 @@ public class ViewAdministradorController implements Initializable {
     }
     
     /**
-     * Metodo para ingresar como administrador
+     * Metodo para ingresar un usuario
      * @param event
      * @throws IOException 
      */
@@ -405,6 +405,11 @@ public class ViewAdministradorController implements Initializable {
         
     }
     
+    /**
+     * Metodo para ingresar un animal 
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void MAnimal (ActionEvent event) throws IOException{
         
