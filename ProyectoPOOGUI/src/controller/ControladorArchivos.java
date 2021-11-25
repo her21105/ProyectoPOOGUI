@@ -326,6 +326,10 @@ public class ControladorArchivos {
         
     }  
     
+    /**
+     * Metodo para leer usuarios desde el archivo
+     * @return arraylist usuarios
+     */
     private ArrayList<Usuario> leerUsariosDelArchivo(){
         ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
         try{
