@@ -139,6 +139,11 @@ public class ControladorArchivos {
         }
     }
     
+    /**
+     * Este metodo agrega una organizacion 
+     * @param o organizacion
+     * @return funciona
+     */
     public boolean agregarOrganizacion(Organizaciones o){
         try{
             ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
