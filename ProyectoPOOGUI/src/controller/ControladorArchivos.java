@@ -187,6 +187,16 @@ public class ControladorArchivos {
         
     }
     
+    /**
+     * Metodo para guardar la informacion de las organizaciones
+     * @param nombre
+     * @param anno
+     * @param lugar
+     * @param informacionC
+     * @param inform
+     * @param valor
+     * @throws IOException 
+     */
     public void ModOrgs(String nombre, String anno, String lugar, String informacionC, String inform, int valor) throws IOException{
         
         ArrayList<Organizaciones> aux = new ArrayList<Organizaciones>();
