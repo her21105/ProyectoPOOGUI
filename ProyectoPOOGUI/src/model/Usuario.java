@@ -70,7 +70,12 @@ public class Usuario{
      * Sirve para luego pasarlo a archivos
      * @return String
      */
-    public String userString(){
+    public String userString1(){
+        String devolver = this.getUser()+"|"+this.getPassword()+"\n";
+        return devolver;
+    }
+    
+    public String userString2(){
         String devolver = "\n"+this.getUser()+"|"+this.getPassword();
         return devolver;
     }

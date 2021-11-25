@@ -136,7 +136,12 @@ public class Organizacion {
      * Esto sirve para meterlas al file
      * @return String
      */
-    public String organizacionesString(){
+    public String organizacionesString1(){
+        String s = this.getNombre()+"|"+this.getAnnioDeCreacion()+"|"+this.getLugar()+"|"+this.getInformacionDeContacto()+"|"+this.getInformacion()+"\n";
+        return s;
+    }
+    
+    public String organizacionesString2(){
         String s = "\n"+this.getNombre()+"|"+this.getAnnioDeCreacion()+"|"+this.getLugar()+"|"+this.getInformacionDeContacto()+"|"+this.getInformacion();
         return s;
     }

@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import javafx.application.Platform;
+import static javafx.beans.binding.Bindings.select;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -23,6 +24,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -32,6 +35,7 @@ import javax.swing.JOptionPane;
 import model.Organizaciones;
 import model.Usuario;
 import model.Animal;
+
 
 /**
  * FXML Controller class
@@ -84,6 +88,42 @@ public class ViewAdministradorController implements Initializable {
     private Button iniciarSesion;
     @FXML
     private PasswordField tfPassword;
+    @FXML
+    private TextField MUser;
+    @FXML
+    private TextField MPassword;
+    @FXML
+    private ComboBox CBUsers;
+    @FXML
+    private TextField MAnimals;
+    @FXML
+    private TextField MDescripcionAnimal;
+    @FXML
+    private TextField MInformationAnimal;
+    @FXML
+    private ComboBox CBAnimals;
+    @FXML
+    private TextField MOrgName;
+    @FXML
+    private TextField MDateOrg;
+    @FXML
+    private TextField MUbicationOrg;
+    @FXML
+    private TextField MContactOrg;
+    @FXML
+    private TextField MGeneralOrg;
+    @FXML
+    private ComboBox CBOrganizaciones;
+    @FXML
+    private Button BTMUser;
+    @FXML
+    private Button BTMAnimals;
+    @FXML
+    private Button BTMOrg;
+    @FXML
+    private Label lblInfo;
+    
+    private int select;
     
     ControladorArchivos controlador = new ControladorArchivos();
     /**
@@ -92,7 +132,293 @@ public class ViewAdministradorController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+        //combobox de animales
+        CBanimales();
+        
+        //combobox organizaciones
+        CBOrgs();
+      
+        //combobox de usuarios
+        CBUsuarios();
+        
+    }
+    
+    private void CBanimales(){
+        
+        ArrayList<Animal> aux = new ArrayList<Animal>();
+        ArrayList<String> aux2 = new ArrayList<String>();
+        aux.addAll(leerAnimalesDelArchivo());
+        for(int i = 0; i<aux.size(); i++    ){
+            
+            aux2.add(i+" "+aux.get(i).getNombre());
+            
+        }
+        CBAnimals.getItems().addAll(aux2); //ingresar datos
+ 
+        CBAnimals.setOnAction((event2)->{
+    
+        select = CBAnimals.getSelectionModel().getSelectedIndex();
+        
+        Animal animal = leerAnimalesDelArchivo().get(select);
+        String string = "nombres: "+animal.getNombre()+"\n"
+                + "descripción: "+animal.getDescripcion()+"\n"
+                + "información: "+animal.getInformacion();
+        
+        if(sesion == true){
+            lblInfo.setText(string);
+        }else{
+            
+            lblInfo.setText("inicie sesión para desbloquear esta caracteristica");
+        }
+        
+        
+    });
+        
+    }
+    
+    private void CBOrgs(){
+        ArrayList<Organizaciones> aux = new ArrayList<Organizaciones>();
+        ArrayList<String> aux2 = new ArrayList<String>();
+        aux.addAll(leerOrganizacionesDelArchivo());
+        for(int i = 0; i<aux.size(); i++    ){
+            
+            
+            aux2.add(i+" "+aux.get(i).getNombre());
+            
+        }
+        CBOrganizaciones.getItems().addAll(aux2);
+        
+        CBOrganizaciones.setOnAction((event2)->{
+    
+        //System.out.println(AnimalList.getSelectionModel().getSelectedIndex());
+        select = CBOrganizaciones.getSelectionModel().getSelectedIndex();
+        
+        Organizaciones organizaciones = leerOrganizacionesDelArchivo().get(select);
+        String string = "nombre: "+organizaciones.getNombre()+"\n"
+                + "año de creación : "+organizaciones.getAnnioDeCreacion()+"\n"
+                + "información: "+organizaciones.getInformacion()+"\n"
+                + "lugar: "+organizaciones.getLugar()+"\n"
+                + "contacto: "+organizaciones.getInformacionDeContacto();
+        
+        if(sesion == true){
+            lblInfo.setText(string);
+        }else{
+            
+            lblInfo.setText("inicie sesión para desbloquear esta caracteristica");
+        }
+    
+    });
+    }
+    
+    private void CBUsuarios(){
+        
+        ArrayList<Usuario> aux = new ArrayList<Usuario>();
+        ArrayList<String> aux2 = new ArrayList<String>();
+        aux.addAll(leerUsariosDelArchivo());
+        for(int i = 0; i<aux.size(); i++    ){
+            
+            
+            aux2.add(i+" "+aux.get(i).getUser());
+            
+        }
+        
+        
+        
+        CBUsers.getItems().addAll(aux2);
+        
+        
+        
+        CBUsers.setOnAction((event2)->{
+    
+        //System.out.println(AnimalList.getSelectionModel().getSelectedIndex());
+        select = CBUsers.getSelectionModel().getSelectedIndex();
+        
+        Usuario usuario = leerUsariosDelArchivo().get(select);
+        String string = "nombre: "+usuario.getUser()+"\n"
+                + "contraseña : "+usuario.getPassword();
+                
+        
+        if(sesion == true){
+            lblInfo.setText(string);
+        }else{
+            
+            lblInfo.setText("inicie sesión para desbloquear esta caracteristica");
+        }
+    
+    });
+    }
+    
+    private ArrayList<Usuario> leerUsariosDelArchivo(){
+        ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        try{
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/registro.txt").getFile());
+            Scanner s = new Scanner(file);
+            
+            while (s.hasNextLine()){
+                String linea = s.nextLine();
+                String[] items = linea.split("\\|");
+                
+                String user = items[0];
+                String password = items[1];
+
+                Usuario nuevoUsuario = new Usuario(user, password);
+                listaUsuarios.add(nuevoUsuario);
+            }
+            s.close();
+        } catch (Exception e){
+            
+        }
+        return listaUsuarios;
+    }
+    
+    private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de Animales
+    
+    ArrayList<Animal> listaAnimales = new ArrayList<Animal>();
+    try{
+        
+        
+        ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+        File file = new File(classLoader.getResource("containers/animalesFile.txt").getFile());
+        Scanner s = new Scanner(file); 
+        
+        
+        while (s.hasNextLine()){
+            
+            String linea = s.nextLine();
+            String[] items = linea.split("\\|");
+
+            String nombre = items[0];
+            String descripcion = items[1];
+            String informacion = items[2]; 
+            
+            Animal nuevoAnimal = new Animal(nombre, descripcion, informacion);
+            listaAnimales.add(nuevoAnimal);
+            
+        }
+         s.close();
+        
+    } catch(Exception e){
+        
+        
+        JOptionPane.showMessageDialog(null, "error al ingresar a la base de datos");
+        
+    }
+        return listaAnimales;
+    
+    
+}    
+    
+    private ArrayList<Organizaciones> leerOrganizacionesDelArchivo(){
+        ArrayList<Organizaciones> listaOrganizaciones = new ArrayList<Organizaciones>();
+        try{
+            
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/organizacionesFile.txt").getFile());
+            Scanner s = new Scanner(file);
+            
+            while (s.hasNextLine()){
+                String linea = s.nextLine();
+                String[] items = linea.split("\\|");
+                
+                String nombre = items[0];
+                String annioDeCreacion = items[1];
+                String lugar= items[2];
+                String informacionDeContacto= items[3];
+                String informacion= items[4];
+
+                Organizaciones nuevaOrganizaciones = new Organizaciones(nombre, annioDeCreacion, lugar, informacionDeContacto, informacion);
+                listaOrganizaciones.add(nuevaOrganizaciones);
+            }
+            s.close();
+        } catch (Exception e){
+            
+        }
+        return listaOrganizaciones;
+        
+    }
+    
+    @FXML
+    private void MUser(ActionEvent event) throws IOException{
+        
+        if(!MUser.getText().isEmpty() && !MPassword.getText().isEmpty() && sesion == true){
+            try{
+            String user = MUser.getText();
+            String password = MPassword.getText();
+
+            controlador.ModUsers(user, password, select);
+            
+            
+            
+        }catch(Exception e){
+            
+            System.out.println(e);
+            }
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "inicie sesión o verifique que todas las casillas estan llenas");
+        }
+        
+        
+        
+    }
+    
+    @FXML
+    private void MAnimal (ActionEvent event) throws IOException{
+        
+        if(!MAnimals.getText().isEmpty() && !MDescripcionAnimal.getText().isEmpty() && !MInformationAnimal.getText().isEmpty() && sesion == true){
+            try{
+            String nombre = MAnimals.getText();
+            String description = MDescripcionAnimal.getText();
+            String information = MInformationAnimal.getText();
+
+            controlador.ModAnimales(nombre, description, information, select);
+            
+            
+            
+        }catch(Exception e){
+            
+            System.out.println(e);
+        }
+        
+            
+        }else{
+                
+            JOptionPane.showMessageDialog(null, "inicie sesión o verifique que todas las casillas estan llenas");
+        }
+        
+        
+    }
+    
+    @FXML
+    private void MOrg (ActionEvent event){
+        
+        if(!MOrgName.getText().isEmpty() && !MDateOrg.getText().isEmpty() && !MUbicationOrg.getText().isEmpty() && !MContactOrg.getText().isEmpty() && !MGeneralOrg.getText().isEmpty() && sesion == true){
+            
+            try{
+            String nombre = MOrgName.getText();
+            String anno = MDateOrg.getText();
+            String lugar = MUbicationOrg.getText();
+            String informacionC = MContactOrg.getText();
+            String inform = MGeneralOrg.getText();
+            
+            controlador.ModOrgs(nombre, anno, lugar, informacionC, inform, select);
+            
+            }catch(Exception e){
+
+                System.out.println(e);
+
+            }
+        }else{
+            
+            JOptionPane.showMessageDialog(null, "inicie sesión o verifique que todas las casillas estan llenas");
+            
+        }
+        
+            
+            
+        
+    }
 
     @FXML
     private void goMenu(ActionEvent event) {
@@ -299,87 +625,9 @@ public class ViewAdministradorController implements Initializable {
      * Metodo para leer usuarios del archivo en cuestion
     *@return ArrayList Usuario
     */
-    private ArrayList<Usuario> leerUsariosDelArchivo(){
-        
-        ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
-        try{
-            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-            File file = new File(classLoader.getResource("containers/registro.txt").getFile());
-            Scanner s = new Scanner(file);
-            
-            while (s.hasNextLine()){
-                String linea = s.nextLine();
-                String[] items = linea.split("\\|");
-                
-                String user = items[0];
-                String password = items[1];
-
-                Usuario nuevoUsuario = new Usuario(user, password);
-                listaUsuarios.add(nuevoUsuario);
-            }
-            s.close();
-        } catch (Exception e){
-            
-            System.out.println(e);
-        }
-        System.out.println(listaUsuarios);
-        return listaUsuarios;
-    }
-    
-    /*private boolean guardarEnFile(String nombreArchivo, String texto, boolean append) throws IOException{
-        try{
-        ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-        File file1 = new File(classLoader.getResource("containers/registro.txt").getFile());
-        FileWriter fw = new FileWriter(file1,append);
-        PrintWriter pw = new PrintWriter(fw);
-        pw.write(texto);
-        pw.close();
-        return true;
-        }catch(Exception e){
-            return false;
-        }
-    }
-    
-     private boolean agregarAnimal(Animal a){
-        try{
-            guardarEnFile("animalesFile.txt", a.animalString(), true); 
-            System.out.println(a.animalString());
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-    }
-    
-    /** 
-     * Este metodo agrega usuarios a el file
-     * @param u usuario
-     * @return funciona
-     */
-    /*private boolean agregarUsuario(Usuario u){
-        try{
-            guardarEnFile("registro.txt",u.userString(),true); 
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-    }
-    
-    /** 
-     * Este metodo agrega organizaciones con todo y su informacion al file
-     * @param o organizacion
-     * @return funciona
-     */
-    /*private boolean agregarOrganizacion(Organizaciones o){
-        try{
-            guardarEnFile("organizacionesFile.txt", o.organizacionesString(), true); 
-            return true;
-        } catch (IOException e) {
-            return false;
-        }
-    }*/
     
     
-    
+ 
     /**
      * Metodo para mostrar la pagina
     *@param String url

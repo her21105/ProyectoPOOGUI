@@ -206,22 +206,12 @@ public class ViewInformationController implements Initializable {
             
         }
         AnimalList.getItems().addAll(aux2); //ingresar datos
-        /*AnimalList.setConverter(new StringConverter<Animal>() { //metodo abstracto
-            @Override
-            public String toString(Animal object) { //solo mostrar nombre
-                return object.getNombre();
-            }
-
-            @Override
-            public Animal fromString(String string) {
-                return null;
-            }
-        }); */
+        
         
         
         AnimalList.setOnAction((event2)->{
     
-        //System.out.println(AnimalList.getSelectionModel().getSelectedIndex());
+        
         select = AnimalList.getSelectionModel().getSelectedIndex();
         
         Animal animal = leerAnimalesDelArchivo().get(select);
@@ -231,8 +221,8 @@ public class ViewInformationController implements Initializable {
         
         ShowInfo.setText(string);
         
-        Image image1 = new Image(getClass().getResourceAsStream("/images/"+animal.getNombre()+".png"));
-        imgAnimals.setImage(image1);
+        //Image image1 = new Image(getClass().getResourceAsStream("/images/"+animal.getNombre()+".png"));
+        //imgAnimals.setImage(image1);
         
         
         
