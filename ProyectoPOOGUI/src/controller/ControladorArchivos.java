@@ -252,7 +252,10 @@ public class ControladorArchivos {
         
     }
 
-    
+    /**
+     * Metodo para obtener los animales desde el archivo
+     * @return arraylist animales
+     */
     private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de Animales
     
     ArrayList<Animal> listaAnimales = new ArrayList<Animal>();
