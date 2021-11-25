@@ -107,6 +107,11 @@ public class ControladorArchivos {
         }
     }
     
+    /**
+     * Este metodo agrega un usuario
+     * @param u usuario
+     * @return funciona
+     */
     public boolean agregarUsuario(Usuario u){
         try{
             ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
