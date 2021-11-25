@@ -472,7 +472,11 @@ public class ViewAdministradorController implements Initializable {
             
         
     }
-
+    
+    /**
+     * Metodo para ir al menu
+     * @param event 
+     */
     @FXML
     private void goMenu(ActionEvent event) {
         
