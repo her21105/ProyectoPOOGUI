@@ -75,6 +75,11 @@ public class ControladorArchivos {
         }
     }
     
+    /**
+     * Este metodo agrega animales al file
+     * @param a animal
+     * @return funciona
+     */
     public boolean agregarAnimal(Animal a){
         try{
             ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
