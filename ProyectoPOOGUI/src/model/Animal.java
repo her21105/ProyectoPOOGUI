@@ -89,7 +89,12 @@ public class Animal {
      * Sirve para pasarlo a un archivo
      * @return string
      */
-    public String animalString(){
+    public String animalString1(){
+        String s = this.getNombre()+"|"+this.getDescripcion()+"|"+this.getInformacion()+"\n";
+        return s;
+    }
+    
+    public String animalString2(){
         String s = "\n"+this.getNombre()+"|"+this.getDescripcion()+"|"+this.getInformacion();
         return s;
     }

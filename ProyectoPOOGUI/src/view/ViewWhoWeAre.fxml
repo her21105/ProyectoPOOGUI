@@ -5,13 +5,14 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Rectangle?>
 
 <AnchorPane id="AnchorPane" prefHeight="521.0" prefWidth="719.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ViewWhoWeAreController">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ffd88d" height="159.0" layoutX="39.0" layoutY="328.0" stroke="BLACK" strokeType="INSIDE" width="603.0" />
       <Button fx:id="menuButton" layoutX="28.0" layoutY="46.0" mnemonicParsing="false" onAction="#goMenu" text="Inicio" />
       <Button fx:id="informButton" layoutX="89.0" layoutY="46.0" mnemonicParsing="false" onAction="#goInfo" text="Información" />
       <Button fx:id="WhoWeAreButton" layoutX="186.0" layoutY="46.0" mnemonicParsing="false" onAction="#goWhoWeAre" text="¿Quienes somos?" />
-      <Button fx:id="DonateButton" layoutX="315.0" layoutY="46.0" mnemonicParsing="false" onAction="#goDonate" text="Donar" />
       <ImageView fx:id="imgSM" fitHeight="77.0" fitWidth="80.0" layoutX="135.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgSM1" fitHeight="77.0" fitWidth="80.0" layoutX="260.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
       <ImageView fx:id="imgSM2" fitHeight="77.0" fitWidth="80.0" layoutX="405.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true" />
@@ -21,10 +22,10 @@
          </font>
       </Label>
       <Button fx:id="InicioAdministradorButton" layoutX="390.0" layoutY="46.0" mnemonicParsing="false" onAction="#goInicioAdministradores" text="Inicio de sesion administradores" />
-      <Label layoutX="55.0" layoutY="340.0" text="Mision:" />
-      <Label layoutX="56.0" layoutY="418.0" text="Vision:" />
-      <Label layoutX="28.0" layoutY="368.0" prefHeight="35.0" prefWidth="492.0" text="Lograr la concientizacion de la importancia de la biodiversidad y su cuidado." />
-      <Label layoutX="19.0" layoutY="446.0" prefHeight="26.0" prefWidth="538.0" text="Difundir informacion de los animales, para un mayor entendimiento de su aporte a la biodiversidad." />
+      <Label layoutX="321.0" layoutY="334.0" text="Mision:" />
+      <Label layoutX="322.0" layoutY="421.0" text="Vision:" />
+      <Label layoutX="120.0" layoutY="351.0" prefHeight="35.0" prefWidth="492.0" text="Lograr la concientizacion de la importancia de la biodiversidad y su cuidado." textAlignment="CENTER" />
+      <Label layoutX="72.0" layoutY="455.0" prefHeight="26.0" prefWidth="538.0" text="Difundir informacion de los animales, para un mayor entendimiento de su aporte a la biodiversidad." />
       <Button fx:id="BTTOrganization" layoutX="592.0" layoutY="46.0" mnemonicParsing="false" onAction="#goOrg" text="organizaciones" />
    </children>
 </AnchorPane>

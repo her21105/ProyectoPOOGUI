@@ -19,7 +19,9 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
 import model.Animal;
 import model.Organizaciones;
 import model.Usuario;
@@ -41,10 +43,11 @@ public class ControladorArchivos {
      */
     public boolean guardarEnFile(File nombreArchivo, String texto, boolean append) throws IOException{
         try{
+        
         FileWriter fw = new FileWriter(nombreArchivo,append);
         BufferedWriter bw = new BufferedWriter(fw);
         PrintWriter pw = new PrintWriter(bw);        
-        pw.println(texto);
+        pw.write(texto);
         pw.close();
         bw.close();
         fw.close();
@@ -61,11 +64,22 @@ public class ControladorArchivos {
      * @param a animal
      * @return funciona
      */
+    public boolean MagregarAnimal(Animal a){
+        try{
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/animalesFile.txt").getFile());
+            guardarEnFile(file, a.animalString1(), true); 
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+    
     public boolean agregarAnimal(Animal a){
         try{
             ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-            File file = new File(classLoader.getResource("/containers/animalesFile.txt").getFile());
-            guardarEnFile(file, a.animalString(), true); 
+            File file = new File(classLoader.getResource("containers/animalesFile.txt").getFile());
+            guardarEnFile(file, a.animalString2(), true); 
             return true;
         } catch (IOException e) {
             return false;
@@ -77,11 +91,22 @@ public class ControladorArchivos {
      * @param u usuario
      * @return funciona
      */
+    public boolean MagregarUsuario(Usuario u){
+        try{
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/registro.txt").getFile());
+            guardarEnFile(file, u.userString1(), true); 
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+    
     public boolean agregarUsuario(Usuario u){
         try{
             ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-            File file = new File(classLoader.getResource("/containers/registro.txt").getFile());
-            guardarEnFile(file, u.userString(), true); 
+            File file = new File(classLoader.getResource("containers/registro.txt").getFile());
+            guardarEnFile(file, u.userString2(), true); 
             return true;
         } catch (IOException e) {
             return false;
@@ -93,18 +118,191 @@ public class ControladorArchivos {
      * @param o organizacion
      * @return funciona
      */
-    public boolean agregarOrganizacion(Organizaciones o){
+    public boolean MagregarOrganizacion(Organizaciones o){
         try{
             ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
-            File file = new File(classLoader.getResource("/containers/organizacionesFile.txt").getFile());
-            guardarEnFile(file, o.organizacionesString(), true); 
+            File file = new File(classLoader.getResource("containers/organizacionesFile.txt").getFile());
+            guardarEnFile(file, o.organizacionesString1(), true); 
             return true;
         } catch (IOException e) {
             return false;
         }
     }
+    
+    public boolean agregarOrganizacion(Organizaciones o){
+        try{
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/organizacionesFile.txt").getFile());
+            guardarEnFile(file, o.organizacionesString2(), true); 
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+    }
+    
+    
 
+    public void ModAnimales(String nombre, String description, String information, int valor) throws IOException{
+        
+        ArrayList<Animal> aux = new ArrayList<Animal>();
+        aux.addAll(leerAnimalesDelArchivo());
+        aux.get(valor).setNombre(nombre);
+        aux.get(valor).setDescripcion(description);
+        aux.get(valor).setInformacion(information);
+        
+        ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+        File file = new File(classLoader.getResource("containers/animalesFile.txt").getFile());
+        file.delete();
+        
+        file.createNewFile();
+        
+        for (int i = 0; i < aux.size(); i++) {
+            
+            MagregarAnimal(aux.get(i));
+            
+            
+        }
+        
+        
+    }
+    
+    public void ModOrgs(String nombre, String anno, String lugar, String informacionC, String inform, int valor) throws IOException{
+        
+        ArrayList<Organizaciones> aux = new ArrayList<Organizaciones>();
+        aux.addAll(leerOrganizacionesDelArchivo());
+        aux.get(valor).setNombre(nombre);
+        aux.get(valor).setAnnioDeCreacion(anno);
+        aux.get(valor).setLugar(lugar);
+        aux.get(valor).setInformacionDeContacto(informacionC);
+        aux.get(valor).setInformacion(inform);
+        
+        ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+        File file = new File(classLoader.getResource("containers/organizacionesFile.txt").getFile());
+        file.delete();
+        
+        file.createNewFile();
+        
+        for (int i = 0; i < aux.size(); i++) {
+            
+            MagregarOrganizacion(aux.get(i));
+            
+            
+        }
+        
+    }
+    
+    public void ModUsers(String user, String password, int valor) throws IOException{
+        
+        ArrayList<Usuario> aux = new ArrayList<Usuario>();
+        aux.addAll(leerUsariosDelArchivo());
+        aux.get(valor).setUser(user);
+        aux.get(valor).setPassword(password);
+        
+        
+        ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+        File file = new File(classLoader.getResource("containers/registro.txt").getFile());
+        file.delete();
+        
+        file.createNewFile();
+        
+        for (int i = 0; i < aux.size(); i++) {
+            
+            MagregarUsuario(aux.get(i));
+            
+            
+        }
+        
+    }
 
+    
+    private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de Animales
+    
+    ArrayList<Animal> listaAnimales = new ArrayList<Animal>();
+    try{
+        
+        
+        ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+        File file = new File(classLoader.getResource("containers/animalesFile.txt").getFile());
+        Scanner s = new Scanner(file); 
+        
+        
+        while (s.hasNextLine()){
+            
+            String linea = s.nextLine();
+            String[] items = linea.split("\\|");
 
+            String nombre = items[0];
+            String descripcion = items[1];
+            String informacion = items[2]; 
+            
+            Animal nuevoAnimal = new Animal(nombre, descripcion, informacion);
+            listaAnimales.add(nuevoAnimal);
+            
+        }
+         s.close();
+        
+    } catch(Exception e){
+        
+        
+        JOptionPane.showMessageDialog(null, "error al ingresar a la base de datos");
+        
+        }
+        return listaAnimales;
+    
+    
+    }
+
+    private ArrayList<Organizaciones> leerOrganizacionesDelArchivo(){
+        ArrayList<Organizaciones> listaOrganizaciones = new ArrayList<Organizaciones>();
+        try{
+            
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/organizacionesFile.txt").getFile());
+            Scanner s = new Scanner(file);
+            
+            while (s.hasNextLine()){
+                String linea = s.nextLine();
+                String[] items = linea.split("\\|");
+                
+                String nombre = items[0];
+                String annioDeCreacion = items[1];
+                String lugar= items[2];
+                String informacionDeContacto= items[3];
+                String informacion= items[4];
+
+                Organizaciones nuevaOrganizaciones = new Organizaciones(nombre, annioDeCreacion, lugar, informacionDeContacto, informacion);
+                listaOrganizaciones.add(nuevaOrganizaciones);
+            }
+            s.close();
+        } catch (Exception e){
+            
+        }
+        return listaOrganizaciones;
+        
+    }  
+    
+    private ArrayList<Usuario> leerUsariosDelArchivo(){
+        ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
+        try{
+            ClassLoader classLoader = getClass().getClassLoader(); //buscador de clases o recursos
+            File file = new File(classLoader.getResource("containers/registro.txt").getFile());
+            Scanner s = new Scanner(file);
+            
+            while (s.hasNextLine()){
+                String linea = s.nextLine();
+                String[] items = linea.split("\\|");
+                
+                String user = items[0];
+                String password = items[1];
+
+                Usuario nuevoUsuario = new Usuario(user, password);
+                listaUsuarios.add(nuevoUsuario);
+            }
+            s.close();
+        } catch (Exception e){
+            
+        }
+        return listaUsuarios;
+    }
 }
 
