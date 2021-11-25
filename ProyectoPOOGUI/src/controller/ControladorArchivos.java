@@ -222,6 +222,13 @@ public class ControladorArchivos {
         
     }
     
+    /**
+     * Metodo para guardar la informacion de los usuarios
+     * @param user
+     * @param password
+     * @param valor
+     * @throws IOException 
+     */
     public void ModUsers(String user, String password, int valor) throws IOException{
         
         ArrayList<Usuario> aux = new ArrayList<Usuario>();
