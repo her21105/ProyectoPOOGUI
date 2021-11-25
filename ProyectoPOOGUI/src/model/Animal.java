@@ -94,6 +94,11 @@ public class Animal {
         return s;
     }
     
+    /**
+     * Devuelve el valor de tres variables de forma String
+     * @return String
+     */
+    
     public String animalString2(){
         String s = "\n"+this.getNombre()+"|"+this.getDescripcion()+"|"+this.getInformacion();
         return s;
