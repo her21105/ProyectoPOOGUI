@@ -227,6 +227,9 @@ public class ViewAdministradorController implements Initializable {
     });
     }
     
+    /**
+     * Metodo para agregar un nuevo usuario
+     */
     private void CBUsuarios(){
         
         ArrayList<Usuario> aux = new ArrayList<Usuario>();
