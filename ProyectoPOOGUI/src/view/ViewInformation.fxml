@@ -11,7 +11,6 @@
       <Button fx:id="menuButton" layoutX="27.0" layoutY="43.0" mnemonicParsing="false" onAction="#goMenu" text="Inicio" />
       <Button fx:id="informButton" layoutX="84.0" layoutY="43.0" mnemonicParsing="false" onAction="#goInfo" text="Información" />
       <Button fx:id="whoWeAreButton" layoutX="175.0" layoutY="43.0" mnemonicParsing="false" onAction="#goWhoWeAre" text="¿Quienes somos?" />
-      <Button fx:id="DonateButton" layoutX="296.0" layoutY="43.0" mnemonicParsing="false" onAction="#goDonate" text="Donar" />
       <ComboBox fx:id="AnimalList" layoutX="457.0" layoutY="116.0" onAction="#InfoAnimals" prefWidth="150.0" />
       <ImageView fx:id="imgAnimals" fitHeight="122.0" fitWidth="167.0" layoutX="27.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="ShowInfo" layoutX="213.0" layoutY="103.0" prefHeight="250.0" prefWidth="203.0" />

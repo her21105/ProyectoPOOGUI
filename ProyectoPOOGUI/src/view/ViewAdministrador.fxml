@@ -13,7 +13,6 @@
       <Button fx:id="menuButton" layoutX="35.0" layoutY="36.0" mnemonicParsing="false" onAction="#goMenu" text="Inicio" />
       <Button fx:id="informButton" layoutX="93.0" layoutY="37.0" mnemonicParsing="false" onAction="#goInfo" text="Informacion" />
       <Button fx:id="whoWeAreButton" layoutX="184.0" layoutY="37.0" mnemonicParsing="false" onAction="#goWhoWeAre" text="¿Quienes somos?" />
-      <Button fx:id="DonateButton" layoutX="309.0" layoutY="37.0" mnemonicParsing="false" onAction="#gotDonate" text="Donar" />
       <Button fx:id="InicioAdministradorButton" layoutX="388.0" layoutY="38.0" mnemonicParsing="false" onAction="#goInicioAdministradores" text="Inicio de sesion administradores" />
       <Label layoutX="59.0" layoutY="90.0" text="Usuario:" />
       <Label layoutX="53.0" layoutY="121.0" text="Password:" />
