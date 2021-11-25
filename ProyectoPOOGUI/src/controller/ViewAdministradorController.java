@@ -300,7 +300,7 @@ public class ViewAdministradorController implements Initializable {
     
     /**
      * Metodo para obtener los animales
-     * @return 
+     * @return arraylist animales
      */
     private ArrayList<Animal> leerAnimalesDelArchivo(){//devuelve el arraylist de Animales
     
@@ -338,7 +338,10 @@ public class ViewAdministradorController implements Initializable {
     
     
 }    
-    
+    /**
+     * Metodo para obtener las organizaciones
+     * @return arraylist organizaciones
+     */
     private ArrayList<Organizaciones> leerOrganizacionesDelArchivo(){
         ArrayList<Organizaciones> listaOrganizaciones = new ArrayList<Organizaciones>();
         try{
@@ -368,6 +371,11 @@ public class ViewAdministradorController implements Initializable {
         
     }
     
+    /**
+     * Metodo para ingresar como administrador
+     * @param event
+     * @throws IOException 
+     */
     @FXML
     private void MUser(ActionEvent event) throws IOException{
         
