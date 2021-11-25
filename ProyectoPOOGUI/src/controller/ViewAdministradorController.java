@@ -186,6 +186,9 @@ public class ViewAdministradorController implements Initializable {
         
     }
     
+    /**
+     * Metodo para agregar una nueva organizacion
+     */
     private void CBOrgs(){
         ArrayList<Organizaciones> aux = new ArrayList<Organizaciones>();
         ArrayList<String> aux2 = new ArrayList<String>();
