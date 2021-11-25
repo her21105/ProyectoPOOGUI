@@ -270,6 +270,10 @@ public class ViewAdministradorController implements Initializable {
     });
     }
     
+    /**
+     * Metodo para obtener usuarios
+     * @return arraylist usuarios
+     */
     private ArrayList<Usuario> leerUsariosDelArchivo(){
         ArrayList<Usuario> listaUsuarios = new ArrayList<Usuario>();
         try{
