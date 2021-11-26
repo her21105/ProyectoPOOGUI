@@ -75,6 +75,12 @@ public class Usuario{
         return devolver;
     }
     
+    
+    /** 
+     * regresa el usuario y contraseña en un String
+     * Sirve para luego pasarlo a archivos
+     * @return String
+     */
     public String userString2(){
         String devolver = "\n"+this.getUser()+"|"+this.getPassword();
         return devolver;
