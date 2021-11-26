@@ -141,6 +141,12 @@ public class Organizaciones {
         return s;
     }
     
+        
+    /** 
+     * Devuelve un string con todas las variables de la organizacion
+     * Esto sirve para meterlas al file
+     * @return String
+     */
     public String organizacionesString2(){
         String s = "\n"+this.getNombre()+"|"+this.getAnnioDeCreacion()+"|"+this.getLugar()+"|"+this.getInformacionDeContacto()+"|"+this.getInformacion();
         return s;
