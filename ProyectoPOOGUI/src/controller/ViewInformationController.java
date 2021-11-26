@@ -221,8 +221,17 @@ public class ViewInformationController implements Initializable {
         
         ShowInfo.setText(string);
         
-        //Image image1 = new Image(getClass().getResourceAsStream("/images/"+animal.getNombre()+".png"));
-        //imgAnimals.setImage(image1);
+        try{
+            Image image1 = new Image(getClass().getResourceAsStream("/images/"+animal.getNombre()+".png"));
+            imgAnimals.setImage(image1);
+        }catch(Exception e){
+            
+            
+            JOptionPane.showMessageDialog(null, "recuerde ingresar las imagenes a la base correspondiente");
+            imgAnimals.setImage(null);
+            
+        }
+        
         
         
         
