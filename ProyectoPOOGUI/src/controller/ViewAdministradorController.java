@@ -45,7 +45,8 @@ import model.Animal;
  */
 public class ViewAdministradorController implements Initializable {
 
-    private static boolean sesion;
+    private static boolean sesion = false;
+    private static boolean mod = false;
     
     @FXML
     private Button menuButton;
@@ -388,7 +389,7 @@ public class ViewAdministradorController implements Initializable {
  
             controlador.ModUsers(user, password, Select);
             
-                
+                mod = true;
                 goInicioAdministradores(event);
             
             
@@ -421,6 +422,7 @@ public class ViewAdministradorController implements Initializable {
 
             controlador.ModAnimales(nombre, description, information, select);
             
+            mod = true;
             goInicioAdministradores(event);
             
         }catch(Exception e){
@@ -455,6 +457,7 @@ public class ViewAdministradorController implements Initializable {
             
             controlador.ModOrgs(nombre, anno, lugar, informacionC, inform, select);
             
+            mod = true;
             goInicioAdministradores(event);
             
             }catch(Exception e){
@@ -561,12 +564,23 @@ public class ViewAdministradorController implements Initializable {
         
         if(!trNewUser.getText().isEmpty() && !trNewPassword.getText().isEmpty() && sesion == true){
 
-            Usuario nUP = new Usuario(trNewUser.getText(), trNewPassword.getText());
-            controlador.agregarUsuario(nUP);
-            trNewUser.clear(); 
-            trNewPassword.clear();
-            
-            JOptionPane.showMessageDialog(null, "se ha agregado un nuevo usuario");
+            if(mod == true){
+                
+                Usuario nUP = new Usuario(trNewUser.getText(), trNewPassword.getText());
+                controlador.MagregarUsuario(nUP);
+                trNewUser.clear(); 
+                trNewPassword.clear();
+
+                JOptionPane.showMessageDialog(null, "se ha agregado un nuevo usuario");
+                
+            }else{
+                Usuario nUP = new Usuario(trNewUser.getText(), trNewPassword.getText());
+                controlador.agregarUsuario(nUP);
+                trNewUser.clear(); 
+                trNewPassword.clear();
+
+                JOptionPane.showMessageDialog(null, "se ha agregado un nuevo usuario");
+            }
 
         }else{
             
@@ -586,12 +600,21 @@ public class ViewAdministradorController implements Initializable {
             
             
             
-            Animal nA = new Animal(trNewAnimal.getText(),trNewDescripcionAnimal.getText(),trNewInformacionAnimal.getText());
-            controlador.agregarAnimal(nA);
-            trNewAnimal.clear();
-            trNewDescripcionAnimal.clear();
-            trNewInformacionAnimal.clear();
-            JOptionPane.showMessageDialog(null, "se ha agregado un nuevo animal");
+            if(mod == true){
+                Animal nA = new Animal(trNewAnimal.getText(),trNewDescripcionAnimal.getText(),trNewInformacionAnimal.getText());
+                controlador.MagregarAnimal(nA);
+                trNewAnimal.clear();
+                trNewDescripcionAnimal.clear();
+                trNewInformacionAnimal.clear();
+                JOptionPane.showMessageDialog(null, "se ha agregado un nuevo animal");
+            }else{
+                Animal nA = new Animal(trNewAnimal.getText(),trNewDescripcionAnimal.getText(),trNewInformacionAnimal.getText());
+                controlador.agregarAnimal(nA);
+                trNewAnimal.clear();
+                trNewDescripcionAnimal.clear();
+                trNewInformacionAnimal.clear();
+                JOptionPane.showMessageDialog(null, "se ha agregado un nuevo animal");
+            }
             
         }else{
             JOptionPane.showMessageDialog(null, "llene todas las casillas/login");
@@ -610,14 +633,25 @@ public class ViewAdministradorController implements Initializable {
         if(!tfNewOrganizacion.getText().isEmpty() && !tfNewFecha.getText().isEmpty() && !tfNewUbicacion.getText().isEmpty() && !tfNewContacto.getText().isEmpty() && !tfNewGeneral.getText().isEmpty() && sesion == true ){
             
             
-            Organizaciones nOrg = new Organizaciones(tfNewOrganizacion.getText(), tfNewFecha.getText(), tfNewUbicacion.getText(), tfNewContacto.getText(), tfNewGeneral.getText());
-            tfNewOrganizacion.clear(); 
-            tfNewFecha.clear(); 
-            tfNewUbicacion.clear(); 
-            tfNewContacto.clear(); 
-            tfNewGeneral.clear();
-            controlador.agregarOrganizacion(nOrg);
-            JOptionPane.showMessageDialog(null, "se ha agregado una nueva organización");
+            if(mod == true){
+                Organizaciones nOrg = new Organizaciones(tfNewOrganizacion.getText(), tfNewFecha.getText(), tfNewUbicacion.getText(), tfNewContacto.getText(), tfNewGeneral.getText());
+                tfNewOrganizacion.clear(); 
+                tfNewFecha.clear(); 
+                tfNewUbicacion.clear(); 
+                tfNewContacto.clear(); 
+                tfNewGeneral.clear();
+                controlador.MagregarOrganizacion(nOrg);
+                JOptionPane.showMessageDialog(null, "se ha agregado una nueva organización");
+            }else{
+                Organizaciones nOrg = new Organizaciones(tfNewOrganizacion.getText(), tfNewFecha.getText(), tfNewUbicacion.getText(), tfNewContacto.getText(), tfNewGeneral.getText());
+                tfNewOrganizacion.clear(); 
+                tfNewFecha.clear(); 
+                tfNewUbicacion.clear(); 
+                tfNewContacto.clear(); 
+                tfNewGeneral.clear();
+                controlador.agregarOrganizacion(nOrg);
+                JOptionPane.showMessageDialog(null, "se ha agregado una nueva organización");
+            }
             
         }else{
             JOptionPane.showMessageDialog(null, "llene todas las casillas/login");
